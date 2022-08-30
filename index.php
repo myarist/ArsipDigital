@@ -117,7 +117,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div style="margin-top: 140px;">
-                            <h1>Sistem Informasi Arsip Digital</h1>
+                            <h1>Sistem Pengarsipan Dokumen Digital</h1>
                             <p>Manajemen file arsip dengan mudah dan cepat.</p>
 
                             <br>
