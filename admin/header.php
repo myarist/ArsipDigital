@@ -33,14 +33,15 @@
 
     <script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
-    <?php 
+    <?php
     include '../koneksi.php';
     session_start();
-    if($_SESSION['status'] != "admin_login"){
+    if ($_SESSION['status'] != "admin_login") {
         header("location:../login.php?alert=belum_login");
     }
     ?>
 </head>
+
 <body>
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
@@ -74,6 +75,10 @@
 
                         <li>
                             <a href="arsip.php" aria-expanded="false"><span class="educate-icon educate-data-table icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Arsip</span></a>
+                        </li>
+
+                        <li>
+                            <a href="panduan.php" aria-expanded="false"><span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">SOP dan Panduan </span></a>
                         </li>
 
                         <li>
@@ -138,109 +143,108 @@
                                                             <h1>Riwayat unduh terakhir</h1>
                                                         </div>
                                                         <ul class="notification-menu">
-                                                            <?php 
-                                                            $arsip = mysqli_query($koneksi,"SELECT * FROM riwayat,arsip,user WHERE riwayat_arsip=arsip_id and riwayat_user=user_id ORDER BY riwayat_id DESC");
-                                                            while($p = mysqli_fetch_array($arsip)){
-                                                                ?>
+                                                            <?php
+                                                            $arsip = mysqli_query($koneksi, "SELECT * FROM riwayat,arsip,user WHERE riwayat_arsip=arsip_id and riwayat_user=user_id ORDER BY riwayat_id DESC");
+                                                            while ($p = mysqli_fetch_array($arsip)) {
+                                                            ?>
                                                                 <li>
                                                                     <a href="riwayat.php">
                                                                         <div class="notification-content">
-                                                                           <p>
-                                                                            <small><i><?php echo date('H:i:s  d-m-Y',strtotime($p['riwayat_waktu'])) ?></i></small>
-                                                                            <br>
-                                                                            <b><?php echo $p['user_nama'] ?></b> menunduh <b><?php echo $p['arsip_nama'] ?></b>.
-                                                                        </p>
-                                                                    </div>
-                                                                </a>
-                                                                <hr>
-                                                            </li>
-                                                            <?php 
-                                                        }
-                                                        ?>
-                                                    </ul>
-                                                    <div class="notification-view">
-                                                        <a href="riwayat.php">Lihat semua riwayat</a>
+                                                                            <p>
+                                                                                <small><i><?php echo date('H:i:s  d-m-Y', strtotime($p['riwayat_waktu'])) ?></i></small>
+                                                                                <br>
+                                                                                <b><?php echo $p['user_nama'] ?></b> menunduh <b><?php echo $p['arsip_nama'] ?></b>.
+                                                                            </p>
+                                                                        </div>
+                                                                    </a>
+                                                                    <hr>
+                                                                </li>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </ul>
+                                                        <div class="notification-view">
+                                                            <a href="riwayat.php">Lihat semua riwayat</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </li>
+                                                </li>
 
-                                            <li class="nav-item">
-                                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-                                                    <?php 
-                                                    $id_admin = $_SESSION['id'];
-                                                    $profil = mysqli_query($koneksi,"select * from admin where admin_id='$id_admin'");
-                                                    $profil = mysqli_fetch_assoc($profil);
-                                                    if($profil['admin_foto'] == ""){ 
-                                                      ?>
-                                                      <img src="../gambar/sistem/user.png" style="width: 20px;height: 20px">
-                                                  <?php }else{ ?>
-                                                    <img src="../gambar/admin/<?php echo $profil['admin_foto'] ?>" style="width: 20px;height: 20px">
-                                                <?php } ?>
-                                                <span class="admin-name"><?php echo $_SESSION['nama']; ?> [ <b>Administrator</b> ]</span>
-                                                <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
-                                            </a>
-                                            <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                <li><a href="profil.php"><span class="edu-icon edu-home-admin author-log-ic"></span>Profil Saya</a></li>
-                                                <li><a href="gantipassword.php"><span class="edu-icon edu-user-rounded author-log-ic"></span>Ganti Password</a></li>
-                                                <li><a href="logout.php"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a></li>
+                                                <li class="nav-item">
+                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                                        <?php
+                                                        $id_admin = $_SESSION['id'];
+                                                        $profil = mysqli_query($koneksi, "select * from admin where admin_id='$id_admin'");
+                                                        $profil = mysqli_fetch_assoc($profil);
+                                                        if ($profil['admin_foto'] == "") {
+                                                        ?>
+                                                            <img src="../gambar/sistem/user.png" style="width: 20px;height: 20px">
+                                                        <?php } else { ?>
+                                                            <img src="../gambar/admin/<?php echo $profil['admin_foto'] ?>" style="width: 20px;height: 20px">
+                                                        <?php } ?>
+                                                        <span class="admin-name"><?php echo $_SESSION['nama']; ?> [ <b>Administrator</b> ]</span>
+                                                        <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
+                                                    </a>
+                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                        <li><a href="profil.php"><span class="edu-icon edu-home-admin author-log-ic"></span>Profil Saya</a></li>
+                                                        <li><a href="gantipassword.php"><span class="edu-icon edu-user-rounded author-log-ic"></span>Ganti Password</a></li>
+                                                        <li><a href="logout.php"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a></li>
+                                                    </ul>
+                                                </li>
                                             </ul>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Mobile Menu start -->
-    <div class="mobile-menu-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="mobile-menu">
-                        <nav id="dropdown">
-                            <ul class="mobile-menu-nav">
-                                <li class="active">
-                                    <a href="index.php">
-                                        <span class="educate-icon educate-home icon-wrap"></span>
-                                        <span class="mini-click-non">Dashboard</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="kategori.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Kategori</span></a>
-                                </li>
+            <!-- Mobile Menu start -->
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul class="mobile-menu-nav">
+                                        <li class="active">
+                                            <a href="index.php">
+                                                <span class="educate-icon educate-home icon-wrap"></span>
+                                                <span class="mini-click-non">Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="kategori.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Kategori</span></a>
+                                        </li>
 
-                                <li>
-                                    <a href="petugas.php" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Petugas</span></a>
-                                </li>
+                                        <li>
+                                            <a href="petugas.php" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Petugas</span></a>
+                                        </li>
 
-                                <li>
-                                    <a href="user.php" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data User</span></a>
-                                </li>
+                                        <li>
+                                            <a href="user.php" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data User</span></a>
+                                        </li>
 
-                                <li>
-                                    <a href="arsip.php" aria-expanded="false"><span class="educate-icon educate-data-table icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Arsip</span></a>
-                                </li>
+                                        <li>
+                                            <a href="arsip.php" aria-expanded="false"><span class="educate-icon educate-data-table icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Arsip</span></a>
+                                        </li>
 
-                                <li>
-                                    <a href="riwayat.php" aria-expanded="false"><span class="educate-icon educate-form icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Riwayat Unduh</span></a>
-                                </li>
+                                        <li>
+                                            <a href="riwayat.php" aria-expanded="false"><span class="educate-icon educate-form icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Riwayat Unduh</span></a>
+                                        </li>
 
-                                <li>
-                                    <a href="gantipassword.php" aria-expanded="false"><span class="educate-icon educate-danger icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Ganti Password</span></a>
-                                </li>
+                                        <li>
+                                            <a href="gantipassword.php" aria-expanded="false"><span class="educate-icon educate-danger icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Ganti Password</span></a>
+                                        </li>
 
-                                <li>
-                                    <a href="logout.php" aria-expanded="false"><span class="educate-icon educate-pages icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Logout</span></a>
-                                </li>
-                            </ul>
-                        </nav>
+                                        <li>
+                                            <a href="logout.php" aria-expanded="false"><span class="educate-icon educate-pages icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Logout</span></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
