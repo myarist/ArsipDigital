@@ -83,7 +83,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Arsip Digital</a>
+                    <a class="navbar-brand" href="#">BPS Kota Mataram</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -117,7 +117,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div style="margin-top: 140px;">
-                            <h1>Sistem Pengarsipan Dokumen Digital</h1>
+                            <h1>Sistem Pengarsipan Dokumen BPS Kota Mataram</h1>
                             <p>Manajemen file arsip dengan mudah dan cepat.</p>
 
                             <br>
