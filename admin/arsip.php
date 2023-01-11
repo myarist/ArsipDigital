@@ -120,8 +120,8 @@ $(document).on('click', '.clickLink', function() {
         $('.modal-body #filename').text(arsip_nama);
         $('.modal-body #myframe').attr("src", path);
     });
-      
-</script>
+
+</script> 
 
 
 <!--  Modal Preview Arsip -->
