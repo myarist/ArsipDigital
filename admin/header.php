@@ -28,9 +28,9 @@
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../assets/js/DataTables/datatables.css">
-
+    <link rel="icon" type="image/png" href="../assets/img/logo/logosn.png" sizes="32x32" />
     <script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
     <?php
