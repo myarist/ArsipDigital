@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="icon" type="image/png" href="assets/img/logo/logosn.png" sizes="32x32" />
 </head>
 
 <body>
@@ -62,7 +63,7 @@
                         <br>
                         <br>
                         <center>
-                            <h4>LOGIN ADMIN / PENGURUS</h4>    
+                            <h4>LOGIN ADMIN / PEGAWAI</h4>    
                         </center>
                         <br>
                         <br>
@@ -80,7 +81,7 @@
                                 <label class="control-label" for="password">Hak Akses</label>
                                 <select class="form-control" name="akses">
                                     <option value="admin">Admin</option>
-                                    <option value="petugas">Petugas</option>
+                                    <option value="petugas">Pegawai</option>
                                 </select>
                                 
                             </div>

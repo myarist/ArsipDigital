@@ -10,6 +10,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="icon" type="image/png" href="assets/img/logo/logosn.png" sizes="32x32" />
     </head>
 
     <body>
@@ -64,11 +65,15 @@
             .banner a:hover{
                 text-decoration: none;
                 border: 1px dashed white;
+                background-color: greenyellow;
             }
 
             .banner p{
                 font-size: 13pt;
             }
+
+
+           
         </style>
 
 
@@ -123,8 +128,8 @@
                             <br>
                             <br>
 
-                            <a href="user_login.php">LOGIN USER</a>
-                            <a href="login.php">LOGIN ADMIN / PETUGAS</a>
+                           <!-- <a href="user_login.php">LOGIN USER</a> -->
+                            <a  href="login.php">LOGIN ADMIN / PEGAWAI</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
