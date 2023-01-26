@@ -77,14 +77,14 @@
                                 <label class="control-label" for="password">Password</label>
                                 <input type="password" title="Please enter your password" placeholder="******" required="required" autocomplete="off" name="password" id="password" class="form-control">
                             </div>
-                            <div class="form-group">
+                           <!-- <div class="form-group">
                                 <label class="control-label" for="password">Hak Akses</label>
                                 <select class="form-control" name="akses">
                                     <option value="admin">Admin</option>
                                     <option value="petugas">Pegawai</option>
                                 </select>
                                 
-                            </div>
+                            </div> -->
                             
                             <input type="submit" class="btn btn-success btn-block loginbtn" value="Login">
                         </form>

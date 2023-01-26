@@ -71,13 +71,36 @@
                                     <?php
                                 }
                                 ?>
+
+<div class="modal fade" id="modalPetugas<?php echo $p['petugas_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalPetugasLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalPetugasLabel">PERINGATAN!</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Apakah anda yakin ingin menghapus petugas ini? <br>file dan semua yang berhubungan akan dihapus secara permanen.
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                                                <a href="petugas_hapus.php?id=<?php echo $p['petugas_id']; ?>" class="btn btn-primary"><i class="fa fa-check"></i> &nbsp; Ya, hapus</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </td>
                             <td><?php echo $p['petugas_nama'] ?></td>
                             <td><?php echo $p['petugas_username'] ?></td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <a href="petugas_edit.php?id=<?php echo $p['petugas_id']; ?>" class="btn btn-default"><i class="fa fa-wrench"></i></a>
-                                    <a href="petugas_hapus.php?id=<?php echo $p['petugas_id']; ?>" class="btn btn-default"><i class="fa fa-trash"></i></a>
+                                    <a href="petugas_edit?id=<?php echo $p['petugas_id']; ?>" class="btn btn-default"><i class="fa fa-wrench"></i></a>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalPetugas<?= $p['petugas_id'] ?>">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -92,6 +115,16 @@
 
     </div>
 </div>
+
+
+    
+
+                                
+                                <!-- href="petugas_hapus?id=<?php echo $p['petugas_id']; ?>" 
+                                
+
+                                    <a class="btn btn-default" data-toggle="modal" data-target="#modalpetugas<?php echo $p['petugas_id']; ?>" ><i class="fa fa-trash"></i></a>-->
+
 
 
 <?php include 'footer.php'; ?>

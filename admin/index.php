@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                 <div class="white-box analytics-info-cs">
-                    <h3 class="box-title">Petugas</h3>
+                    <h3 class="box-title">Pegawai</h3>
                     <ul class="list-inline two-part-sp">
                         <li>
                             <div id="sparklinedash"></div>

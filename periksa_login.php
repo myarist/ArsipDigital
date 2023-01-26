@@ -5,9 +5,9 @@ include 'koneksi.php';
 // menangkap data yang dikirim dari form
 $username = $_POST['username'];
 $password = md5($_POST['password']);
-$akses = $_POST['akses'];
+// $akses = $_POST['akses']; 
 
-if($akses == "admin"){
+if($akses == ""){
 
 	$login = mysqli_query($koneksi, "SELECT * FROM admin WHERE admin_username='$username' AND admin_password='$password'");
 	$cek = mysqli_num_rows($login);
@@ -21,12 +21,8 @@ if($akses == "admin"){
 		$_SESSION['status'] = "admin_login";
 
 		header("location:admin/");
-	}else{
-		header("location:login.php?alert=gagal");
-	}
-
-}else{
-
+	}elseif($akses == ""){
+	
 	$login = mysqli_query($koneksi, "SELECT * FROM petugas WHERE petugas_username='$username' AND petugas_password='$password'");
 	$cek = mysqli_num_rows($login);
 
@@ -41,8 +37,10 @@ if($akses == "admin"){
 		header("location:petugas/");
 	}else{
 		header("location:login.php?alert=gagal");
+	
+		}
 	}
-
 }
+
 
 

@@ -92,7 +92,7 @@
                                 <div class="btn-group">
                                     <a target="_blank" class="btn btn-default" href="../arsip/<?php echo $p['arsip_file']; ?>"><i class="fa fa-download"></i></a>
                                     <a target="_blank" class="clickLink btn btn-default" data-toggle="modal" data-target= "#myModal" data-name="<?php echo $p['arsip_nama']; ?>" data-file="<?= $p['arsip_file'] ?>" ><i class="fa fa-search"></i> Preview</a>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal_<?php echo $p['arsip_id']; ?>">
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_<?php echo $p['arsip_id']; ?>">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </div>

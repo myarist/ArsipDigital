@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Dashboard V.2 | Kiaalap - Kiaalap Admin Template</title>
+        <title>Selamat Datang di Sistem Informasi Arsip Digital BPS</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
@@ -65,14 +65,14 @@
             .banner a:hover{
                 text-decoration: none;
                 border: 1px dashed white;
-                background-color: greenyellow;
+                background-color: green;
             }
 
             .banner p{
                 font-size: 13pt;
             }
 
-
+            
            
         </style>
 
@@ -128,8 +128,8 @@
                             <br>
                             <br>
 
-                           <!-- <a href="user_login.php">LOGIN USER</a> -->
-                            <a  href="login.php">LOGIN ADMIN / PEGAWAI</a>
+                           <!-- <a href="user_login.php">LOGIN PEGAWAI</a> -->
+                            <a  href="login.php" >LOGIN</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
