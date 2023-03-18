@@ -36,8 +36,8 @@
                 </div>
                 <div class="panel-body">
 
-                    <div class="pull-right">            
-                        <a href="arsip.php" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+                    <div class="pull-right">
+                        <a href="arsip" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
                     </div>
 
                     <br>
@@ -59,12 +59,12 @@
                             <label>Kategori</label>
                             <select class="form-control" name="kategori" required="required">
                                 <option value="">Pilih kategori</option>
-                                <?php 
-                                $kategori = mysqli_query($koneksi,"SELECT * FROM kategori");
-                                while($k = mysqli_fetch_array($kategori)){
-                                    ?>
+                                <?php
+                                $kategori = mysqli_query($koneksi, "SELECT * FROM kategori");
+                                while ($k = mysqli_fetch_array($kategori)) {
+                                ?>
                                     <option value="<?php echo $k['kategori_id']; ?>"><?php echo $k['kategori_nama']; ?></option>
-                                    <?php 
+                                <?php
                                 }
                                 ?>
                             </select>

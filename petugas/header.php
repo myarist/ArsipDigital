@@ -33,14 +33,59 @@
     <link rel="icon" type="image/png" href="../assets/img/logo/logosn.png" sizes="32x32" />
     <script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
-    <?php 
+    <?php
     include '../koneksi.php';
     session_start();
-    if($_SESSION['status'] != "petugas_login"){
+    if ($_SESSION['status'] != "petugas_login") {
         header("location:../login.php?alert=belum_login");
     }
     ?>
+
+    <style type="text/css">
+        .dropright {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropright-menu {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            right: auto;
+            left: 100%;
+            background-color: #f1f1f1;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            text-align: left;
+        }
+
+        .dropright:hover .dropright-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        .dropright-mobile {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropright-mobile-menu {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            left: 0;
+            background-color: #f1f1f1;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            text-align: left;
+        }
+    </style>
+
 </head>
+
 <body>
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
@@ -64,23 +109,23 @@
                             <a href="arsip" aria-expanded="false"><span class="educate-icon educate-data-table icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Arsip Saya</span></a>
                         </li>
 
-                         <li>
+                        <li>
                             <a href="kategori" aria-expanded="false"><span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Kategori</span></a>
                         </li>
-                        
+
                         <li>
                             <a href="panduan" aria-expanded="false"><span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">SOP dan Panduan </span></a>
                         </li>
 
-                         <!--<li>
+                        <!--<li>
                             <a href="user.php" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data User</span></a>
                         </li>-->
 
-                         <!--<li>
+                        <!--<li>
                             <a href="riwayat.php" aria-expanded="false"><span class="educate-icon educate-form icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Riwayat Unduh</span></a>
                         </li>-->
 
-                         <!--<li>
+                        <!--<li>
                             <a href="gantipassword.php" aria-expanded="false"><span class="educate-icon educate-danger icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Ganti Password</span></a>
                         </li>
 
@@ -88,70 +133,112 @@
                             <a href="logout.php" aria-expanded="false"><span class="educate-icon educate-pages icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Logout</span></a>
                         </li>-->
 
-                        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
-                        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
-                        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
-                        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
-                        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li> 
-                        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
-                        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
-                        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
 
-                        <style type="text/css">
 
-.dropright {
-  position: relative; 
-  display: inline-block;
-}
 
-.dropright-menu {
-  display: none;
-  position: absolute;
-  bottom:0 ;
-    right: auto;
-    left: 100%;
-  background-color: #f1f1f1;
-  min-width: 180px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  text-align: left;
-}
+                        <li class="nav-item dropright">
+                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                <?php
+                                $id_petugas = $_SESSION['id'];
+                                $profil = mysqli_query($koneksi, "select * from petugas where petugas_id='$id_petugas'");
+                                $profil = mysqli_fetch_assoc($profil);
+                                if ($profil['petugas_foto'] == "") {
+                                ?>
+                                    <img class="img-circle" src="../gambar/sistem/user.png" style="width: 20px;height: 20px">
+                                <?php } else { ?>
+                                    <img class="img-circle" src="../gambar/petugas/<?php echo $profil['petugas_foto'] ?>" style="width: 20px;height: 20px">
+                                <?php } ?>
+                                <span><i class="fa fa-space" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-space" aria-hidden="true"></i></span>
+                                <span class="admin-name mini-click-non"><?php echo $_SESSION['nama']; ?> <!-- [ <b>Petugas</b> ]--></span>
 
-.dropright:hover .dropright-menu {display: block;
-                                margin-top: 0;}
-                            </style>
-
-                          <li class="nav-item dropright">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-                                                    <?php 
-                                                    $id_petugas = $_SESSION['id'];
-                                                    $profil = mysqli_query($koneksi,"select * from petugas where petugas_id='$id_petugas'");
-                                                    $profil = mysqli_fetch_assoc($profil);
-                                                    if($profil['petugas_foto'] == ""){ 
-                                                      ?>
-                                                      <img src="../gambar/sistem/user.png" style="width: 20px;height: 20px">
-                                                  <?php }else{ ?>
-                                                    <img src="../gambar/petugas/<?php echo $profil['petugas_foto'] ?>" style="width: 20px;height: 20px">
-                                                <?php } ?>
-                                                <span><i class="fa fa-space" aria-hidden="true"></i></span>
-                                                <span><i class="fa fa-space" aria-hidden="true"></i></span>
-                                                <span class="admin-name mini-click-non"><?php echo $_SESSION['nama']; ?> <!-- [ <b>Petugas</b> ]--></span>
-                                                        
-                                                        <i class=" edu-icon edu-up-arrow"></i>
-                                                    </a>
-                                                    <ul role="menu" class="slideInUp author-log dropright-menu zoomIn">
-                                                        <li><a href="profil"><span class="edu-icon edu-home-admin author-log-ic"></span>Profil Saya</a></li>
-                                                        <li><a href="gantipassword"><span class="edu-icon edu-user-rounded author-log-ic"></span>Ganti Password</a></li>
-                                                        <li><a href="logout"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a></li>
-                                                    </ul>
-                                                </li>   
+                                <i class=" edu-icon edu-up-arrow"></i>
+                            </a>
+                            <ul role="menu" class="slideInUp author-log dropright-menu zoomIn">
+                                <li><a href="profil"><span class="edu-icon edu-home-admin author-log-ic"></span>Profil Saya</a></li>
+                                <li><a href="gantipassword"><span class="edu-icon edu-user-rounded author-log-ic"></span>Ganti Password</a></li>
+                                <li><a href="logout"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </nav>
     </div>
-    
-     <div class="all-content-wrapper">
+
+    <div class="all-content-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -162,8 +249,8 @@
             </div>
         </div>
         <div class="header-advance-area">
-           <div class="header-top-area">
-                 <div class="container-fluid">
+            <div class="header-top-area">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="header-top-wraper">
@@ -177,7 +264,7 @@
                                     </div>
                                     <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
                                         <div class="header-top-menu tabl-d-n">
-                                           <!-- <ul class="nav navbar-nav mai-top-nav">
+                                            <!-- <ul class="nav navbar-nav mai-top-nav">
                                                 <li class="nav-item"><a href="#" class="nav-link">Sistem Informasi Arsip Digital</a></li>
                                             </ul> -->
                                         </div>
@@ -194,33 +281,59 @@
                     </div>
                 </div>
             </div>
-    <!-- Mobile Menu start -->
-    <div class="mobile-menu-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="mobile-menu">
-                        <nav id="dropdown">
-                            <ul class="mobile-menu-nav">
-                                <li class="active">
-                                    <a href="index.php">
-                                        <span class="educate-icon educate-home icon-wrap"></span>
-                                        <span class="mini-click-non">Dashboard</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="kategori.php" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Kategori</span></a>
-                                </li>
+            <!-- Mobile Menu start -->
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul class="mobile-menu-nav">
+                                        <li class="active">
+                                            <a href="index.php">
+                                                <span class="educate-icon educate-home icon-wrap"></span>
+                                                <span class="mini-click-non">Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="kategori.php" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Kategori</span></a>
+                                        </li>
 
-                                <li>
-                                    <a href="panduan.php" aria-expanded="false"><span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">SOP dan Panduan </span></a>
-                                </li>
+                                        <li>
+                                            <a href="panduan.php" aria-expanded="false"><span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">SOP dan Panduan </span></a>
+                                        </li>
 
-                                <!--<li>
-                                    <a href="petugas.php" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Petugas</span></a>
-                                </li>
+                                        <li>
+                                            <a href="petugas.php" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Pegawai</span></a>
+                                        </li>
 
-                                <li>
+                                        <li class="nav-item dropright-mobile">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                                <?php
+                                                $id_petugas = $_SESSION['id'];
+                                                $profil = mysqli_query($koneksi, "select * from petugas where petugas_id='$id_petugas'");
+                                                $profil = mysqli_fetch_assoc($profil);
+                                                if ($profil['petugas_foto'] == "") {
+                                                ?>
+                                                    <img class="img-circle" src="../gambar/sistem/user.png" style="width: 20px;height: 20px">
+                                                <?php } else { ?>
+                                                    <img class="img-circle" src="../gambar/petugas/<?php echo $profil['petugas_foto'] ?>" style="width: 20px;height: 20px">
+                                                <?php } ?>
+                                                <span><i class="fa fa-space" aria-hidden="true"></i></span>
+                                                <span><i class="fa fa-space" aria-hidden="true"></i></span>
+                                                <span class="admin-name mini-click-non"><?php echo $_SESSION['nama']; ?> <!-- [ <b>Petugas</b> ]--></span>
+
+                                                <i class=" edu-icon edu-up-arrow"></i>
+                                            </a>
+                                            <ul role="menu" class="slideInUp author-log dropright-mobile-menu zoomIn">
+                                                <li><a href="profil"><span class="edu-icon edu-home-admin author-log-ic"></span>Profil Saya</a></li>
+                                                <li><a href="gantipassword"><span class="edu-icon edu-user-rounded author-log-ic"></span>Ganti Password</a></li>
+                                                <li><a href="logout"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a></li>
+                                            </ul>
+                                        </li>
+
+
+                                        <!--<li>
                                     <a href="user.php" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">User</span></a>
                                 </li>
 
@@ -235,11 +348,11 @@
                                 <li>
                                     <a href="logout.php" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Logout</span></a>
                                 </li> -->
-                            </ul>
-                        </nav>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>

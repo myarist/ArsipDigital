@@ -45,7 +45,7 @@
 <script src="../assets/js/pdf/jquery.media.js"></script>
 <script src="../assets/js/pdf/pdf-active.js"></script>
 
-<!--<script type="text/javascript">
+<script type="text/javascript">
 	$(document).ready( function () {
 		$('.table-datatable').DataTable();
 
