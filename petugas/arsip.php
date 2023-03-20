@@ -116,8 +116,8 @@
 
                                 <div class="btn-group">
                                     <a target="_blank" class="btn btn-default" href="../arsip/<?php echo $p['arsip_file']; ?>"><i class="fa fa-download"></i></a>
-                                    <a target="_blank" href="arsip_preview.php?id=<?php echo $p['arsip_id']; ?>" class="btn btn-default"><i class="fa fa-search"></i> Preview</a>
-                                    <a href="arsip_edit.php?id=<?php echo $p['arsip_id']; ?>" class="btn btn-default"><i class="fa fa-wrench"></i></a>
+                                    <a target="_blank" class="clickLink btn btn-default" data-toggle="modal" data-target= "#myModal" data-name="<?php echo $p['arsip_nama']; ?>" data-file="<?= $p['arsip_file'] ?>" ><i class="fa fa-search"></i> Preview</a>
+                                    <a href="arsip_edit.php?id=<?php echo $p['arsip_id']; ?>" class="btn btn-default" ><i class="fa fa-wrench"></i></a>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal_<?php echo $p['arsip_id']; ?>">
                                         <i class="fa fa-trash"></i>
                                     </button>
@@ -136,5 +136,47 @@
     </div>
 </div>
 
+<script>
+
+$(document).on('click', '.clickLink', function() {
+        var arsip_nama = $(this).data("name");
+        let file = $(this).data("file");
+        path = "../arsip/" + file;
+        
+        $('.modal-body #filename').text(arsip_nama);
+        $('.modal-body #myframe').attr("src", path);
+    });
+
+</script> 
+
+<!--  Modal Preview Arsip -->
+<div class="modal" id="myModal">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+
+<!-- Modal Header -->
+<div class="modal-header">
+<h5 class="modal-title" >Preview</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+<!-- Modal Body -->
+<div class="modal-body">
+
+<b> Nama File </b> : <span name="filename" id="filename"></span>
+
+<iframe src="" width="100%" height="500px" id="myframe"></iframe>
+</div>
+
+<!-- Modal Footer -->
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
+
+</div>
+</div>
+</div>
 
 <?php include 'footer.php'; ?>

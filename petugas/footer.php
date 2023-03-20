@@ -1,5 +1,5 @@
 
-<div class="footer-copyright-area mg-t-30">
+<!--<div class="footer-copyright-area mg-t-30">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12">
@@ -10,7 +10,7 @@
 		</div>
 	</div>
 </div>
-</div>
+</div>-->
 
 <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
@@ -24,7 +24,7 @@
 <script src="../assets/js/counterup/waypoints.min.js"></script>
 <script src="../assets/js/counterup/counterup-active.js"></script>
 <script src="../assets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="../assets/js/scrollbar/mCustomScrollbar-active.js"></script>
+<!--<script src="../assets/js/scrollbar/mCustomScrollbar-active.js"></script>-->
 <script src="../assets/js/metisMenu/metisMenu.min.js"></script>
 <script src="../assets/js/metisMenu/metisMenu-active.js"></script>
 <script src="../assets/js/morrisjs/raphael-min.js"></script>

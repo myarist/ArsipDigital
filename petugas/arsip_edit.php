@@ -36,25 +36,25 @@
                 </div>
                 <div class="panel-body">
 
-                    <div class="pull-right">            
-                        <a href="arsip.php" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+                    <div class="pull-right">
+                        <a href="arsip" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
                     </div>
 
                     <br>
                     <br>
 
 
-                    <?php 
-                    $id = $_GET['id'];              
+                    <?php
+                    $id = $_GET['id'];
                     $data = mysqli_query($koneksi, "select * from arsip where arsip_id='$id'");
-                    while($d = mysqli_fetch_array($data)){
-                        ?>
+                    while ($d = mysqli_fetch_array($data)) {
+                    ?>
 
                         <form method="post" action="arsip_update.php" enctype="multipart/form-data">
 
                             <div class="form-group">
                                 <label>Kode Arsip</label>
-                                  <input type="hidden" name="id" value="<?php echo $d['arsip_id']; ?>">
+                                <input type="hidden" name="id" value="<?php echo $d['arsip_id']; ?>">
                                 <input type="text" class="form-control" name="kode" required="required" value="<?php echo $d['arsip_kode']; ?>">
                             </div>
 
@@ -67,12 +67,14 @@
                                 <label>Kategori</label>
                                 <select class="form-control" name="kategori" required="required">
                                     <option value="">Pilih kategori</option>
-                                    <?php 
-                                    $kategori = mysqli_query($koneksi,"SELECT * FROM kategori");
-                                    while($k = mysqli_fetch_array($kategori)){
-                                        ?>
-                                        <option <?php if($k['kategori_id'] == $d['arsip_kategori']){echo "selected='selected'";} ?> value="<?php echo $k['kategori_id']; ?>"><?php echo $k['kategori_nama']; ?></option>
-                                        <?php 
+                                    <?php
+                                    $kategori = mysqli_query($koneksi, "SELECT * FROM kategori");
+                                    while ($k = mysqli_fetch_array($kategori)) {
+                                    ?>
+                                        <option <?php if ($k['kategori_id'] == $d['arsip_kategori']) {
+                                                    echo "selected='selected'";
+                                                } ?> value="<?php echo $k['kategori_id']; ?>"><?php echo $k['kategori_nama']; ?></option>
+                                    <?php
                                     }
                                     ?>
                                 </select>
@@ -96,7 +98,7 @@
 
                         </form>
 
-                        <?php 
+                    <?php
                     }
                     ?>
 
