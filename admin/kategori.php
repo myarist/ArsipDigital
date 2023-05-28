@@ -50,30 +50,55 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     include '../koneksi.php';
                     $no = 1;
-                    $kategori = mysqli_query($koneksi,"SELECT * FROM kategori");
-                    while($p = mysqli_fetch_array($kategori)){
-                        ?>
+                    $kategori = mysqli_query($koneksi, "SELECT * FROM kategori");
+                    while ($p = mysqli_fetch_array($kategori)) {
+                    ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $p['kategori_nama'] ?></td>
                             <td><?php echo $p['kategori_keterangan'] ?></td>
                             <td class="text-center">
-                                <?php 
-                                if($p['kategori_id'] != 1){
-                                    ?>
+                                <?php
+                                if ($p['kategori_id'] != 1) {
+                                ?>
+
+                                    <div class="modal fade" id="modalKategori<?php echo $p['kategori_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalKategoriLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="modalKategoriLabel">PERINGATAN!</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Apakah anda yakin ingin menghapus kategori ini? <br>kategori akan dihapus secara permanen.
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                                                    <a href="kategori_hapus.php?id=<?php echo $p['kategori_id']; ?>" class="btn btn-primary"><i class="fa fa-check"></i> &nbsp; Ya, hapus</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                     <div class="btn-group">
                                         <a href="kategori_edit.php?id=<?php echo $p['kategori_id']; ?>" class="btn btn-default"><i class="fa fa-wrench"></i></a>
-                                        <a href="kategori_hapus.php?id=<?php echo $p['kategori_id']; ?>" class="btn btn-default"><i class="fa fa-trash"></i></a>
+                                        <!-- <a href="kategori_hapus.php?id=<?php echo $p['kategori_id']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a> -->
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalKategori<?= $p['kategori_id'] ?>">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
                                     </div>
-                                    <?php
+                                <?php
                                 }
                                 ?>
                             </td>
                         </tr>
-                        <?php 
+                    <?php
                     }
                     ?>
                 </tbody>

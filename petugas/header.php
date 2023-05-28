@@ -114,7 +114,7 @@
                         </li>
 
                         <li>
-                            <a href="panduan" aria-expanded="false"><span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">SOP dan Panduan </span></a>
+                            <a href="panduan" aria-expanded="false"><span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Panduan </span></a>
                         </li>
 
                         <!--<li>
@@ -204,7 +204,9 @@
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li></li>
+
+
+
 
 
 

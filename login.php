@@ -83,7 +83,7 @@
                         <br>
                         <br>
                         <center>
-                            <h4>LOGIN ADMIN / PEGAWAI</h4>
+                            <h4>LOGIN ADMIN / PETUGAS</h4>
                         </center>
                         <br>
                         <br>

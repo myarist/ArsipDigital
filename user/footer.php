@@ -1,4 +1,4 @@
-<br>
+<!-- <br>
 <br>
 <br>
 <br>
@@ -13,7 +13,7 @@
 		</div>
 	</div>
 </div>
-</div>
+</div> -->
 
 <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
@@ -27,7 +27,7 @@
 <script src="../assets/js/counterup/waypoints.min.js"></script>
 <script src="../assets/js/counterup/counterup-active.js"></script>
 <script src="../assets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="../assets/js/scrollbar/mCustomScrollbar-active.js"></script>
+<!-- <script src="../assets/js/scrollbar/mCustomScrollbar-active.js"></script> -->
 <script src="../assets/js/metisMenu/metisMenu.min.js"></script>
 <script src="../assets/js/metisMenu/metisMenu-active.js"></script>
 <script src="../assets/js/morrisjs/raphael-min.js"></script>
@@ -43,15 +43,13 @@
 <script src="../assets/js/main.js"></script>
 
 <script src="../assets/js/DataTables/datatables.js"></script>
-
-
 <script src="../assets/js/pdf/jquery.media.js"></script>
 <script src="../assets/js/pdf/pdf-active.js"></script>
 
 <script type="text/javascript">
-	$(document).ready( function () {
+	$(document).ready(function() {
 		$('.table-datatable').DataTable();
-	} );
+	});
 </script>
 </body>
 

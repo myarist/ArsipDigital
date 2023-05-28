@@ -51,6 +51,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label>Tanggal Arsip</label>
+                            <input type="date" class="form-control" name="tanggal" required="required">
+                        </div>
+
+                        <div class="form-group">
                             <label>Nama Arsip</label>
                             <input type="text" class="form-control" name="nama" required="required">
                         </div>
