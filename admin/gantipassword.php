@@ -35,18 +35,24 @@
 
                 <div class="panel-body">
 
-                    <?php 
-                    if(isset($_GET['alert'])){
-                        if($_GET['alert'] == "sukses"){
+                    <?php
+                    if (isset($_GET['alert'])) {
+                        if ($_GET['alert'] == "sukses") {
                             echo "<div class='alert alert-success'>Password anda berhasil diganti!</div>";
+                        } elseif ($_GET['alert'] == "gagal") {
+                            echo "<div class='alert alert-danger'>Password lama tidak sama!</div>";
                         }
                     }
                     ?>
 
                     <form action="gantipassword_act.php" method="post">
                         <div class="form-group">
+                            <label>Masukkan Password Lama</label>
+                            <input type="password" class="form-control" placeholder="Masukkan Password Lama .." name="passwordlama" required="required" min="5">
+                        </div>
+                        <div class="form-group">
                             <label>Masukkan Password Baru</label>
-                            <input type="password" class="form-control" placeholder="Masukkan Password Baru .." name="password" required="required" min="5">
+                            <input type="password" class="form-control" placeholder="Masukkan Password Baru .." name="passwordbaru" required="required" min="5">
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Simpan">

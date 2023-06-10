@@ -36,17 +36,17 @@
                     <h3 class="panel-title">Edit User</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="pull-right">            
-                        <a href="user.php" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+                    <div class="pull-right">
+                        <a href="user" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
                     </div>
                     <br>
                     <br>
 
-                    <?php 
-                    $id = $_GET['id'];              
+                    <?php
+                    $id = $_GET['id'];
                     $data = mysqli_query($koneksi, "select * from user where user_id='$id'");
-                    while($d = mysqli_fetch_array($data)){
-                        ?>
+                    while ($d = mysqli_fetch_array($data)) {
+                    ?>
 
                         <form method="post" action="user_update.php" enctype="multipart/form-data">
 
@@ -64,13 +64,13 @@
                             <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" class="form-control" name="password">
-                                <small>Kosongkan jika tidak ingin mengubah password.</small>
+                                <small>Kosongkan jika tidak ingin mengubah password</small>
                             </div>
 
                             <div class="form-group">
                                 <label>Foto</label>
                                 <input type="file" name="foto">
-                                <small>Kosongkan jika tidak ingin mengubah foto.</small>
+                                <small>Kosongkan jika tidak ingin mengubah foto</small>
                             </div>
 
                             <div class="form-group">
@@ -80,7 +80,7 @@
 
                         </form>
 
-                        <?php 
+                    <?php
                     }
                     ?>
 

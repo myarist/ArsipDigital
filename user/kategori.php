@@ -89,9 +89,9 @@
                                     <div class="btn-group">
                                         <a href="kategori_edit?id=<?php echo $p['kategori_id']; ?>" class="btn btn-default"><i class="fa fa-wrench"></i></a>
                                         <!-- <a href="kategori_hapus.php?id=<?php echo $p['kategori_id']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a> -->
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalKategori<?= $p['kategori_id'] ?>">
+                                        <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalKategori<?= $p['kategori_id'] ?>">
                                             <i class="fa fa-trash"></i>
-                                        </button>
+                                        </button> -->
                                     </div>
                                 <?php
                                 }

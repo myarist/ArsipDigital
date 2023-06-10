@@ -50,7 +50,7 @@ if ($akses == "") {
 
 				header("location:user/");
 			} else {
-				header("location:login.php?alert=gagal");
+				header("location:login?alert=gagal");
 			}
 		}
 	}

@@ -34,12 +34,12 @@
 
 
             <div class="pull-right">
-                <a href="petugas_tambah.php" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Petugas</a>
+                <a href="petugas_tambah" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Petugas</a>
             </div>
+            <br>
+            <br>
+            <br>
 
-            <br>
-            <br>
-            <br>
             <table id="table" class="table table-bordered table-striped table-hover table-datatable">
                 <thead>
                     <tr>
@@ -51,28 +51,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     include '../koneksi.php';
                     $no = 1;
-                    $petugas = mysqli_query($koneksi,"SELECT * FROM petugas ORDER BY petugas_id DESC");
-                    while($p = mysqli_fetch_array($petugas)){
-                        ?>
+                    $petugas = mysqli_query($koneksi, "SELECT * FROM petugas ORDER BY petugas_id DESC");
+                    while ($p = mysqli_fetch_array($petugas)) {
+                    ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td>
-                                <?php 
-                                if($p['petugas_foto'] == ""){
-                                    ?>
+                                <?php
+                                if ($p['petugas_foto'] == "") {
+                                ?>
                                     <img class="img-user img-circle" src="../gambar/sistem/user.png">
-                                    <?php
-                                }else{
-                                    ?>
+                                <?php
+                                } else {
+                                ?>
                                     <img class="img-user img-circle" src="../gambar/petugas/<?php echo $p['petugas_foto']; ?>">
-                                    <?php
+                                <?php
                                 }
                                 ?>
 
-<div class="modal fade" id="modalPetugas<?php echo $p['petugas_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalPetugasLabel" aria-hidden="true">
+                                <div class="modal fade" id="modalPetugas<?php echo $p['petugas_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalPetugasLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -98,13 +98,13 @@
                             <td class="text-center">
                                 <div class="btn-group">
                                     <a href="petugas_edit?id=<?php echo $p['petugas_id']; ?>" class="btn btn-default"><i class="fa fa-wrench"></i></a>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalPetugas<?= $p['petugas_id'] ?>">
+                                    <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalPetugas<?= $p['petugas_id'] ?>">
                                         <i class="fa fa-trash"></i>
-                                    </button>
+                                    </button> -->
                                 </div>
                             </td>
                         </tr>
-                        <?php 
+                    <?php
                     }
                     ?>
                 </tbody>
@@ -117,10 +117,10 @@
 </div>
 
 
-    
 
-                                
-                                <!-- href="petugas_hapus?id=<?php echo $p['petugas_id']; ?>" 
+
+
+<!-- href="petugas_hapus?id=<?php echo $p['petugas_id']; ?>" 
                                 
 
                                     <a class="btn btn-default" data-toggle="modal" data-target="#modalpetugas<?php echo $p['petugas_id']; ?>" ><i class="fa fa-trash"></i></a>-->

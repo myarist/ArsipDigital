@@ -106,8 +106,12 @@
                             </a>
                         </li>
 
-                        <li>
+                        <!-- <li>
                             <a href="kategori" aria-expanded="false"><span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Kategori</span></a>
+                        </li> -->
+
+                        <li>
+                            <a href="user" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Master</span></a>
                         </li>
 
                         <li>
@@ -115,17 +119,20 @@
                         </li>
 
                         <!-- <li>
-                            <a href="user.php" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data User</span></a>
-                        </li> -->
-
-                        <li>
                             <a href="arsip" aria-expanded="false"><span class="educate-icon educate-data-table icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Arsip</span></a>
-                        </li>
+                        </li> -->
 
                         <li>
                             <a href="panduan" aria-expanded="false"><span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Panduan </span></a>
                         </li>
 
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                         <li></li>
                         <li></li>
                         <li></li>

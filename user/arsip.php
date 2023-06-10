@@ -38,6 +38,7 @@
                             <label>Filter Kategori</label>
                             <select class="form-control" name="kategori" required="required">
                                 <option value="">Pilih kategori</option>
+                                <option value="all">Pilih semua kategori</option>
                                 <?php
                                 $kategori = mysqli_query($koneksi, "SELECT * FROM kategori");
                                 while ($k = mysqli_fetch_array($kategori)) {
@@ -65,6 +66,7 @@
                             <label>Filter Petugas</label>
                             <select class="form-control" name="petugas" required="required">
                                 <option value="">Pilih petugas</option>
+                                <option value="all">Pilih semua petugas</option>
                                 <?php
                                 $petugas = mysqli_query($koneksi, "SELECT * FROM petugas");
                                 while ($k = mysqli_fetch_array($petugas)) {
@@ -123,10 +125,19 @@
                     if (isset($_GET['kategori'], $_GET['petugas'])) {
                         $kategori = $_GET['kategori'];
                         $petugas = $_GET['petugas'];
-                        $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id and arsip_kategori='$kategori' and arsip_petugas='$petugas' ORDER BY arsip_id DESC");
-                    } else {
+                        if ($kategori == "all" && $petugas == "all") {
+                            $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id ORDER BY arsip_id DESC");
+                        } elseif ($kategori == "all" || $petugas == "all") {
+                            if ($kategori == "all") {
+                                $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id and arsip_petugas='$petugas' ORDER BY arsip_id DESC");
+                            } elseif ($petugas == "all") {
+                                $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id and arsip_kategori='$kategori' ORDER BY arsip_id DESC");
+                            }
+                        } elseif ($kategori != "all" && $petugas != "all") {
+                            $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id and arsip_kategori='$kategori' and arsip_petugas='$petugas' ORDER BY arsip_id DESC");
+                        }
+                    } else
                         $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id ORDER BY arsip_id DESC");
-                    }
                     while ($p = mysqli_fetch_array($arsip)) {
                     ?>
                         <tr>

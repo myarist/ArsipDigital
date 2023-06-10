@@ -36,17 +36,17 @@
                 </div>
                 <div class="panel-body">
 
-                    <div class="pull-right">            
-                        <a href="kategori.php" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+                    <div class="pull-right">
+                        <a href="kategori" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
                     </div>
                     <br>
                     <br>
 
-                    <?php 
-                    $id = $_GET['id'];              
+                    <?php
+                    $id = $_GET['id'];
                     $data = mysqli_query($koneksi, "select * from kategori where kategori_id='$id'");
-                    while($d = mysqli_fetch_array($data)){
-                        ?>
+                    while ($d = mysqli_fetch_array($data)) {
+                    ?>
 
                         <form method="post" action="kategori_update.php">
 
@@ -68,7 +68,7 @@
 
                         </form>
 
-                        <?php 
+                    <?php
                     }
                     ?>
 
