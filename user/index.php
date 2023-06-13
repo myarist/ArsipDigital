@@ -38,10 +38,10 @@
                                     <div id="sparklinedash3"></div>
                                 </li>
                                 <li class="text-right graph-three-ctn">
-                                    <i class="fa fa-level-up" aria-hidden="true"></i> 
+                                    <i class="fa fa-level-up" aria-hidden="true"></i>
                                     <span class="counter text-info">
-                                        <?php 
-                                        $jumlah_arsip = mysqli_query($koneksi,"select * from arsip");
+                                        <?php
+                                        $jumlah_arsip = mysqli_query($koneksi, "select * from arsip");
                                         ?>
                                         <span class="counter"><?php echo mysqli_num_rows($jumlah_arsip); ?></span>
                                     </span>
@@ -57,10 +57,10 @@
                                     <div id="sparklinedash4"></div>
                                 </li>
                                 <li class="text-right graph-four-ctn">
-                                    <i class="fa fa-level-down" aria-hidden="true"></i> 
+                                    <i class="fa fa-level-down" aria-hidden="true"></i>
                                     <span class="text-danger">
-                                        <?php 
-                                        $jumlah_kategori = mysqli_query($koneksi,"select * from kategori");
+                                        <?php
+                                        $jumlah_kategori = mysqli_query($koneksi, "select * from kategori");
                                         ?>
                                         <span class="counter"><?php echo mysqli_num_rows($jumlah_kategori); ?></span>
                                     </span>
@@ -77,7 +77,7 @@
                     <br>
                     <br>
                     <center>
-                        
+
                         <h3>Selamat Datang</h3>
                         <h4>Sistem Informasi Arsip Digital</h4>
 
@@ -91,9 +91,9 @@
 
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 
-                <?php 
+                <?php
                 $id = $_SESSION['id'];
-                $saya = mysqli_query($koneksi,"select * from user where user_id='$id'");
+                $saya = mysqli_query($koneksi, "select * from user where user_id='$id'");
                 $s = mysqli_fetch_assoc($saya);
                 ?>
                 <div class="single-cards-item">
@@ -104,20 +104,20 @@
                     </div>
 
                     <div class="single-product-text">
-                        <?php 
-                        if($s['user_foto'] == ""){
-                            ?>
+                        <?php
+                        if ($s['user_foto'] == "") {
+                        ?>
                             <img class="img-user" src="../gambar/sistem/user.png">
-                            <?php
-                        }else{
-                            ?>
+                        <?php
+                        } else {
+                        ?>
                             <img class="img-user" src="../gambar/user/<?php echo $s['user_foto']; ?>">
-                            <?php
+                        <?php
                         }
                         ?>
 
                         <h4><a class="cards-hd-dn" href="#"><?php echo $s['user_nama']; ?></a></h4>
-                        <h5>user</h5>
+                        <h5>master arsip</h5>
                         <p class="ctn-cards">Pengelolaan arsip jadi lebih mudah dengan sistem informasi arsip digital.</p>
                     </div>
                 </div>

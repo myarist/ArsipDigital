@@ -45,20 +45,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     include '../koneksi.php';
                     $no = 1;
-                    $arsip = mysqli_query($koneksi,"SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id ORDER BY arsip_id DESC");
-                    while($p = mysqli_fetch_array($arsip)){
-                        ?>
+                    $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id ORDER BY arsip_id DESC");
+                    while ($p = mysqli_fetch_array($arsip)) {
+                    ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo date('H:i:s  d-m-Y',strtotime($p['arsip_waktu_upload'])) ?></td>
+                            <td><?php echo date('H:i:s  d-m-Y', strtotime($p['arsip_waktu_upload'])) ?></td>
                             <td>
 
                                 <b>KODE</b> : <?php echo $p['arsip_kode'] ?><br>
                                 <b>Nama</b> : <?php echo $p['arsip_nama'] ?><br>
-                                <b>Jenis</b> : <?php echo $p['arsip_jenis'] ?><br>
+                                <b>Tanggal</b> : <?php echo date('d-m-Y', strtotime($p['tanggal_arsip'])) ?><br>
 
                             </td>
                             <td><?php echo $p['kategori_nama'] ?></td>
@@ -91,14 +91,14 @@
 
                                 <div class="btn-group">
                                     <a target="_blank" class="btn btn-default" href="../arsip/<?php echo $p['arsip_file']; ?>"><i class="fa fa-download"></i></a>
-                                    <a target="_blank" class="clickLink btn btn-default" data-toggle="modal" data-target= "#myModal" data-name="<?php echo $p['arsip_nama']; ?>" data-file="<?= $p['arsip_file'] ?>" ><i class="fa fa-search"></i> Preview</a>
+                                    <a target="_blank" class="clickLink btn btn-default" data-toggle="modal" data-target="#myModal" data-name="<?php echo $p['arsip_nama']; ?>" data-file="<?= $p['arsip_file'] ?>"><i class="fa fa-search"></i> Preview</a>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_<?php echo $p['arsip_id']; ?>">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </div>
                             </td>
                         </tr>
-                        <?php 
+                    <?php
                     }
                     ?>
                 </tbody>
@@ -111,47 +111,45 @@
 </div>
 
 <script>
-
-$(document).on('click', '.clickLink', function() {
+    $(document).on('click', '.clickLink', function() {
         var arsip_nama = $(this).data("name");
         let file = $(this).data("file");
         path = "../arsip/" + file;
-        
+
         $('.modal-body #filename').text(arsip_nama);
         $('.modal-body #myframe').attr("src", path);
     });
-
-</script> 
+</script>
 
 
 <!--  Modal Preview Arsip -->
 <div class="modal" id="myModal">
-<div class="modal-dialog modal-lg" role="document">
-<div class="modal-content">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
 
-<!-- Modal Header -->
-<div class="modal-header">
-<h5 class="modal-title" >Preview</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">Preview</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-<!-- Modal Body -->
-<div class="modal-body">
+            <!-- Modal Body -->
+            <div class="modal-body">
 
-<b> Nama File </b> : <span name="filename" id="filename"></span>
+                <b> Nama File </b> : <span name="filename" id="filename"></span>
 
-<iframe src="" width="100%" height="500px" id="myframe"></iframe>
-</div>
+                <iframe src="" width="100%" height="500px" id="myframe"></iframe>
+            </div>
 
-<!-- Modal Footer -->
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-</div>
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
 
-</div>
-</div>
+        </div>
+    </div>
 </div>
 
 

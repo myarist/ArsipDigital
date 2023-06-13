@@ -55,11 +55,11 @@
         <div class="error-page-int">
             <div class="text-center m-b-md custom-login">
                 <h3>ARSIP DIGITAL</h3>
-                <h4>Sistem Informasi Arsip Digital</h4>
+                <h4>Sistem Informasi Pengarsipan BPS Kota Mataram</h4>
 
                 <br>
 
-                <p>Silahkan login untuk mengakses arsip.</p>
+                <p>Silakan login untuk mengakses arsip</p>
 
             </div>
             <div class="content-error">
@@ -83,7 +83,7 @@
                         <br>
                         <br>
                         <center>
-                            <h4>LOGIN ADMIN / PEGAWAI</h4>
+                            <h4>LOGIN</h4>
                         </center>
                         <br>
                         <br>
