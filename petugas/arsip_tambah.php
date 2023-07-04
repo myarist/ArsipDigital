@@ -1,3 +1,5 @@
+<?php $active = "arsip"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">

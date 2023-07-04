@@ -59,15 +59,16 @@
 
 				$awal = date("Y/m/d", $dateBegin);
 				$akhir = date("Y/m/d", $dateEnd);
+				$petugas_id = $_SESSION['id'];
 
-				$arsip = mysqli_query($koneksi, "SELECT * FROM riwayat WHERE date(riwayat_waktu) >= '$awal' AND date(riwayat_waktu) <= '$akhir'");
+				$arsip = mysqli_query($koneksi, "SELECT * FROM arsip WHERE date(arsip_waktu_upload) >= '$awal' AND date(arsip_waktu_upload) <= '$akhir'");
 				while ($p = mysqli_fetch_array($arsip)) {
-					$tgl = date('Y/m/d', strtotime($p['riwayat_waktu']));
-					$jumlah = mysqli_query($koneksi, "select * from riwayat where date(riwayat_waktu)='$tgl'");
+					$tgl = date('Y/m/d', strtotime($p['arsip_waktu_upload']));
+					$jumlah = mysqli_query($koneksi, "select * from arsip where date(arsip_waktu_upload)='$tgl'");
 					$j = mysqli_num_rows($jumlah);
 				?> {
-						period: '<?php echo date('Y-m-d', strtotime($p['riwayat_waktu'])) ?>',
-						Unduh: <?php echo $j ?>,
+						period: '<?php echo date('Y-m-d', strtotime($p['arsip_waktu_upload'])) ?>',
+						Upload: <?php echo $j ?>,
 					},
 				<?php
 				}
@@ -75,8 +76,8 @@
 
 			],
 			xkey: 'period',
-			ykeys: ['Unduh'],
-			labels: ['Unduh'],
+			ykeys: ['Upload'],
+			labels: ['Upload'],
 			xLabels: 'day',
 			xLabelAngle: 45,
 			pointSize: 3,

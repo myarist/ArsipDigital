@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../koneksi.php';
 $nama  = $_POST['nama'];
 $keterangan = $_POST['keterangan'];

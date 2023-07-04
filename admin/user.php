@@ -1,3 +1,5 @@
+<?php $active = "user"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">
@@ -86,7 +88,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
-                                                <a href="user_hapus.php?id=<?php echo $p['user_id']; ?>" class="btn btn-primary"><i class="fa fa-check"></i> &nbsp; Ya, hapus</a>
+                                                <a href="user_hapus.php?id=<?php echo $p['user_id']; ?>" class="btn btn-danger"><i class="fa fa-check"></i> &nbsp; Ya, hapus</a>
                                             </div>
                                         </div>
                                     </div>
@@ -97,7 +99,7 @@
                             <td><?php echo $p['user_username'] ?></td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <a href="user_edit?id=<?php echo $p['user_id']; ?>" class="btn btn-default"><i class="fa fa-wrench"></i></a>
+                                    <a href="user_edit?id=<?php echo $p['user_id']; ?>" class="btn btn-default"><i class="fa fa-edit"></i></a>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalMaster<?= $p['user_id'] ?>">
                                         <i class="fa fa-trash"></i>
                                     </button>

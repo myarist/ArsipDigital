@@ -25,14 +25,19 @@ if ($akses == "") {
 
 		$login = mysqli_query($koneksi, "SELECT * FROM petugas WHERE petugas_username='$username' AND petugas_password='$password'");
 		$cek = mysqli_num_rows($login);
+		$petugas = mysqli_fetch_assoc($login);
 
-		if ($cek > 0) {
+		if ($petugas['is_active'] == "0")
+			header("location:login?alert=nonaktif");
+
+		elseif ($cek > 0) {
 			session_start();
-			$data = mysqli_fetch_assoc($login);
-			$_SESSION['id'] = $data['petugas_id'];
-			$_SESSION['nama'] = $data['petugas_nama'];
-			$_SESSION['username'] = $data['petugas_username'];
+			// $data = mysqli_fetch_assoc($login);
+			$_SESSION['id'] = $petugas['petugas_id'];
+			$_SESSION['nama'] = $petugas['petugas_nama'];
+			$_SESSION['username'] = $petugas['petugas_username'];
 			$_SESSION['status'] = "petugas_login";
+
 
 			header("location:petugas/");
 		} elseif ($akses == "") {

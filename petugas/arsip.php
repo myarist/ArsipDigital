@@ -1,3 +1,5 @@
+<?php $active = "arsip"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">
@@ -63,7 +65,7 @@
                         <th>Waktu Upload</th>
                         <th>Arsip</th>
                         <th>Kategori</th>
-                        <th>Petugas</th>
+                        <!-- <th>Petugas</th> -->
                         <th>Keterangan</th>
                         <th class="text-center" width="20%">OPSI</th>
                     </tr>
@@ -81,13 +83,13 @@
                             <td><?php echo date('H:i:s  d-m-Y', strtotime($p['arsip_waktu_upload'])) ?></td>
                             <td>
 
-                                <b>KODE</b> : <?php echo $p['arsip_kode'] ?><br>
+                                <b>Kode</b> : <?php echo $p['arsip_kode'] ?><br>
                                 <b>Nama</b> : <?php echo $p['arsip_nama'] ?><br>
                                 <b>Tanggal</b> : <?php echo date('d-m-Y', strtotime($p['tanggal_arsip'])) ?><br>
 
                             </td>
                             <td><?php echo $p['kategori_nama'] ?></td>
-                            <td><?php echo $p['petugas_nama'] ?></td>
+                            <!-- <td><?php echo $p['petugas_nama'] ?></td> -->
                             <td><?php echo $p['arsip_keterangan'] ?></td>
                             <td class="text-center">
 
@@ -107,7 +109,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
-                                                <a href="arsip_hapus.php?id=<?php echo $p['arsip_id']; ?>" class="btn btn-primary"><i class="fa fa-check"></i> &nbsp; Ya, hapus</a>
+                                                <a href="arsip_hapus.php?id=<?php echo $p['arsip_id']; ?>" class="btn btn-danger"><i class="fa fa-check"></i> &nbsp; Ya, hapus</a>
                                             </div>
                                         </div>
                                     </div>
@@ -117,7 +119,7 @@
                                 <div class="btn-group">
                                     <a target="_blank" class="btn btn-default" href="../arsip/<?php echo $p['arsip_file']; ?>"><i class="fa fa-download"></i></a>
                                     <a target="_blank" class="clickLink btn btn-default" data-toggle="modal" data-target="#myModal" data-name="<?php echo $p['arsip_nama']; ?>" data-file="<?= $p['arsip_file'] ?>"><i class="fa fa-search"></i> Preview</a>
-                                    <a href="arsip_edit?id=<?php echo $p['arsip_id']; ?>" class="btn btn-default"><i class="fa fa-wrench"></i></a>
+                                    <a href="arsip_edit?id=<?php echo $p['arsip_id']; ?>" class="btn btn-default"><i class="fa fa-edit"></i></a>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_<?php echo $p['arsip_id']; ?>">
                                         <i class="fa fa-trash"></i>
                                     </button>
@@ -154,7 +156,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h5 class="modal-title">Preview</h5>
+                <h5 class="modal-title"> </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -163,7 +165,7 @@
             <!-- Modal Body -->
             <div class="modal-body">
 
-                <b> Nama File </b> : <span name="filename" id="filename"></span>
+                <b> <span name="filename" id="filename"></span> </b>
 
                 <iframe src="" width="100%" height="500px" id="myframe"></iframe>
             </div>

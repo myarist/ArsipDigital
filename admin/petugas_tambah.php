@@ -1,3 +1,5 @@
+<?php $active = "petugas"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">

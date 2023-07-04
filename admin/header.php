@@ -100,7 +100,7 @@
 
                     <ul class="metismenu" id="menu1">
                         <li class="active">
-                            <a href="index">
+                            <a href="index" class="<?php echo ($active == 'index') ? "bg-info" : "" ?>">
                                 <span class="educate-icon educate-home icon-wrap"></span>
                                 <span class="mini-click-non">Dashboard</span>
                             </a>
@@ -110,12 +110,13 @@
                             <a href="kategori" aria-expanded="false"><span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Kategori</span></a>
                         </li> -->
 
+
                         <li>
-                            <a href="user" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Master</span></a>
+                            <a href="user" class="<?php echo ($active == 'user') ? "bg-info" : "" ?>" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Master</span></a>
                         </li>
 
                         <li>
-                            <a href="petugas" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Petugas</span></a>
+                            <a href="petugas" class="<?php echo ($active == 'petugas') ? "bg-info" : "" ?>" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Petugas</span></a>
                         </li>
 
                         <!-- <li>
@@ -123,7 +124,7 @@
                         </li> -->
 
                         <li>
-                            <a href="panduan" aria-expanded="false"><span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Panduan </span></a>
+                            <a href="panduan" class="<?php echo ($active == 'panduan') ? "bg-info" : "" ?>" aria-expanded="false"><span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Panduan </span></a>
                         </li>
 
                         <li></li>
@@ -183,16 +184,7 @@
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+
 
 
                         <!-- <li>
@@ -302,6 +294,8 @@
                                         <!--<li>
                                             <a href="kategori.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Kategori</span></a>
                                         </li> -->
+
+
 
                                         <li>
                                             <a href="petugas.php" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Petugas</span></a>

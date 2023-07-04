@@ -1,3 +1,5 @@
+<?php $active = "kategori"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">

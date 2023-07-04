@@ -1,3 +1,5 @@
+<?php $active = "index"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">
@@ -27,7 +29,7 @@
 <div class="traffice-source-area mg-b-30">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="white-box analytics-info-cs">
                     <h3 class="box-title">Petugas</h3>
                     <ul class="list-inline two-part-sp">
@@ -46,26 +48,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                <div class="white-box analytics-info-cs res-mg-t-30 table-mg-t-pro-n">
-                    <h3 class="box-title">Arsip Masuk</h3>
-                    <ul class="list-inline two-part-sp">
-                        <li>
-                            <div id="sparklinedash2"></div>
-                        </li>
-                        <li class="text-right graph-two-ctn">
-                            <i class="fa fa-level-up" aria-hidden="true"></i>
-                            <span class="counter text-purple">
-                                <?php
-                                $jumlah_user = mysqli_query($koneksi, "select * from user");
-                                ?>
-                                <span class="counter"><?php echo mysqli_num_rows($jumlah_user); ?></span>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="white-box analytics-info-cs res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
                     <h3 class="box-title">Total Arsip</h3>
                     <ul class="list-inline two-part-sp">
@@ -84,7 +68,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="white-box analytics-info-cs res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
                     <h3 class="box-title">Kategori Arsip</h3>
                     <ul class="list-inline two-part-sp">
@@ -93,7 +77,7 @@
                         </li>
                         <li class="text-right graph-four-ctn">
                             <i class="fa fa-level-down" aria-hidden="true"></i>
-                            <span class="text-danger">
+                            <span class="text-purple">
                                 <?php
                                 $jumlah_kategori = mysqli_query($koneksi, "select * from kategori");
                                 ?>
@@ -140,7 +124,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
 
                 <?php
                 $id = $_SESSION['id'];
