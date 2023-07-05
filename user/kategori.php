@@ -1,3 +1,5 @@
+<?php $active = "kategori"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">
@@ -34,7 +36,8 @@
 
 
             <div class="pull-right">
-                <a href="kategori_tambah" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah kategori</a>
+                <!-- <a href="kategori_tambah" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah kategori</a> -->
+                <button class="btn btn-primary" data-toggle="modal" data-target="#kategoriTambah"><i class="fa fa-plus"></i> Tambah kategori</button>
             </div>
 
             <br>
@@ -87,7 +90,7 @@
 
 
                                     <div class="btn-group">
-                                        <a href="kategori_edit?id=<?php echo $p['kategori_id']; ?>" class="btn btn-default"><i class="fa fa-wrench"></i></a>
+                                        <a href="kategori_edit?id=<?php echo $p['kategori_id']; ?>" class="btn btn-default"><i class="fa fa-edit"></i></a>
                                         <!-- <a href="kategori_hapus.php?id=<?php echo $p['kategori_id']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a> -->
                                         <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalKategori<?= $p['kategori_id'] ?>">
                                             <i class="fa fa-trash"></i>
@@ -107,6 +110,40 @@
 
         </div>
 
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="kategoriTambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Kategori</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="kategori_aksi.php">
+
+                    <div class="form-group">
+                        <label>Nama Kategori</label>
+                        <input type="text" class="form-control" name="nama" required="required">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Keterangan</label>
+                        <textarea class="form-control" name="keterangan" required="required"></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <label></label>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <input type="submit" class="btn btn-primary" value="Tambah Kategori">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -1,3 +1,5 @@
+<?php $active = "user"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">

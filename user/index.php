@@ -1,3 +1,5 @@
+<?php $active = "index"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">
@@ -24,72 +26,102 @@
     </div>
 </div>
 
+<div class="traffice-source-area mg-b-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="white-box analytics-info-cs">
+                    <h3 class="box-title">Petugas</h3>
+                    <ul class="list-inline two-part-sp">
+                        <li>
+                            <div id="sparklinedash"></div>
+                        </li>
+                        <li class="text-right sp-cn-r">
+                            <i class="fa fa-level-up" aria-hidden="true"></i>
+                            <span class="counter text-success">
+                                <?php
+                                $jumlah_petugas = mysqli_query($koneksi, "select * from petugas");
+                                ?>
+                                <span class="counter"><?php echo mysqli_num_rows($jumlah_petugas); ?></span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="white-box analytics-info-cs res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
+                    <h3 class="box-title">Total Arsip</h3>
+                    <ul class="list-inline two-part-sp">
+                        <li>
+                            <div id="sparklinedash3"></div>
+                        </li>
+                        <li class="text-right graph-three-ctn">
+                            <i class="fa fa-level-up" aria-hidden="true"></i>
+                            <span class="counter text-info">
+                                <?php
+                                $jumlah_arsip = mysqli_query($koneksi, "select * from arsip");
+                                ?>
+                                <span class="counter"><?php echo mysqli_num_rows($jumlah_arsip); ?></span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="white-box analytics-info-cs res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
+                    <h3 class="box-title">Kategori Arsip</h3>
+                    <ul class="list-inline two-part-sp">
+                        <li>
+                            <div id="sparklinedash4"></div>
+                        </li>
+                        <li class="text-right graph-four-ctn">
+                            <i class="fa fa-level-down" aria-hidden="true"></i>
+                            <span class="text-purple">
+                                <?php
+                                $jumlah_kategori = mysqli_query($koneksi, "select * from kategori");
+                                ?>
+                                <span class="counter"><?php echo mysqli_num_rows($jumlah_kategori); ?></span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="product-sales-area mg-tb-30">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="white-box analytics-info-cs res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
-                            <h3 class="box-title">Total Arsip</h3>
-                            <ul class="list-inline two-part-sp">
-                                <li>
-                                    <div id="sparklinedash3"></div>
-                                </li>
-                                <li class="text-right graph-three-ctn">
-                                    <i class="fa fa-level-up" aria-hidden="true"></i>
-                                    <span class="counter text-info">
-                                        <?php
-                                        $jumlah_arsip = mysqli_query($koneksi, "select * from arsip");
-                                        ?>
-                                        <span class="counter"><?php echo mysqli_num_rows($jumlah_arsip); ?></span>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="white-box analytics-info-cs res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
-                            <h3 class="box-title">Kategori Arsip</h3>
-                            <ul class="list-inline two-part-sp">
-                                <li>
-                                    <div id="sparklinedash4"></div>
-                                </li>
-                                <li class="text-right graph-four-ctn">
-                                    <i class="fa fa-level-down" aria-hidden="true"></i>
-                                    <span class="text-danger">
-                                        <?php
-                                        $jumlah_kategori = mysqli_query($koneksi, "select * from kategori");
-                                        ?>
-                                        <span class="counter"><?php echo mysqli_num_rows($jumlah_kategori); ?></span>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
                 <div class="product-sales-chart">
+                    <div class="portlet-title">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="caption pro-sl-hd">
+                                    <span class="caption-subject"><b>Grafik flow arsip</b></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="actions graph-rp graph-rp-dl">
+                                    <p>Grafik jumlah arsip masuk perhari selama sebulan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list-inline cus-product-sl-rp">
+                        <li>
+                            <h5><i class="fa fa-circle" style="color: #006DF0;"></i>Jumlah arsip</h5>
+                        </li>
+                    </ul>
+                    <div id="extra-area-chart" style="height: 356px;"></div>
 
-                    <br>
-                    <br>
-                    <center>
 
-                        <h3>Selamat Datang</h3>
-                        <h4>Sistem Informasi Arsip Digital</h4>
-
-                    </center>
-                    <br>
-                    <br>
-                    <br>
-
+                    <div id="morris-area-chart"></div>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
 
                 <?php
                 $id = $_SESSION['id'];

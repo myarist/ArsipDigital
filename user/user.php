@@ -32,7 +32,7 @@
         </div>
         <div class="panel-body">
 
-        
+
             <table id="table" class="table table-bordered table-striped table-hover table-datatable">
                 <thead>
                     <tr>
@@ -43,31 +43,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     include '../koneksi.php';
                     $no = 1;
-                    $user = mysqli_query($koneksi,"SELECT * FROM user ORDER BY user_id DESC");
-                    while($p = mysqli_fetch_array($user)){
-                        ?>
+                    $user = mysqli_query($koneksi, "SELECT * FROM user ORDER BY user_id DESC");
+                    while ($p = mysqli_fetch_array($user)) {
+                    ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td>
-                                <?php 
-                                if($p['user_foto'] == ""){
-                                    ?>
+                                <?php
+                                if ($p['user_foto'] == "") {
+                                ?>
                                     <img class="img-user" src="../gambar/sistem/user.png">
-                                    <?php
-                                }else{
-                                    ?>
+                                <?php
+                                } else {
+                                ?>
                                     <img class="img-user" src="../gambar/user/<?php echo $p['user_foto']; ?>">
-                                    <?php
+                                <?php
                                 }
                                 ?>
                             </td>
                             <td><?php echo $p['user_nama'] ?></td>
-                            <td><?php echo $p['user_username'] ?></td>  
+                            <td><?php echo $p['user_username'] ?></td>
                         </tr>
-                        <?php 
+                    <?php
                     }
                     ?>
                 </tbody>

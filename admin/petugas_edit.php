@@ -1,3 +1,5 @@
+<?php $active = "petugas"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">
@@ -74,6 +76,11 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Status</label>
+                                <input type="checkbox" class="form-control " name="is_active" value="1" <?php echo $d['is_active'] == 1 ? "checked" : "" ?>>
+                            </div>
+
+                            <div class=" form-group">
                                 <label></label>
                                 <input type="submit" class="btn btn-primary" value="Simpan">
                             </div>

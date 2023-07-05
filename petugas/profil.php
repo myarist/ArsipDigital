@@ -30,9 +30,9 @@
 
             <div class="col-lg-3">
 
-                <?php 
+                <?php
                 $id = $_SESSION['id'];
-                $saya = mysqli_query($koneksi,"select * from petugas where petugas_id='$id'");
+                $saya = mysqli_query($koneksi, "select * from petugas where petugas_id='$id'");
                 $s = mysqli_fetch_assoc($saya);
                 ?>
                 <div class="single-cards-item">
@@ -44,15 +44,15 @@
                     </div>
 
                     <div class="single-product-text">
-                        <?php 
-                        if($s['petugas_foto'] == ""){
-                            ?>
+                        <?php
+                        if ($s['petugas_foto'] == "") {
+                        ?>
                             <img class="img-user" src="../gambar/sistem/user.png">
-                            <?php
-                        }else{
-                            ?>
+                        <?php
+                        } else {
+                        ?>
                             <img class="img-user" src="../gambar/petugas/<?php echo $s['petugas_foto']; ?>">
-                            <?php
+                        <?php
                         }
                         ?>
 
@@ -66,9 +66,9 @@
 
             <div class="col-lg-6">
 
-                <?php 
-                if(isset($_GET['alert'])){
-                    if($_GET['alert'] == "sukses"){
+                <?php
+                if (isset($_GET['alert'])) {
+                    if ($_GET['alert'] == "sukses") {
                         echo "<div class='alert alert-success'>Password anda berhasil diganti!</div>";
                     }
                 }
@@ -79,9 +79,9 @@
                         <h4>Data Diri</h4>
                     </div>
                     <div class="panel-body">
-                        
+
                         <form action="profil_act.php" method="post" enctype="multipart/form-data">
-                            
+
                             <div class="form-group">
                                 <label>Nama</label>
                                 <input type="text" class="form-control" placeholder="Masukkan Nama .." name="nama" required="required" value="<?php echo $s['petugas_nama'] ?>">

@@ -1,3 +1,5 @@
+<?php $active = "petugas"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">
@@ -47,6 +49,7 @@
                         <th width="5%">Foto</th>
                         <th>Nama</th>
                         <th>Username</th>
+                        <th>Status</th>
                         <th class="text-center" width="10%">OPSI</th>
                     </tr>
                 </thead>
@@ -95,9 +98,10 @@
                             </td>
                             <td><?php echo $p['petugas_nama'] ?></td>
                             <td><?php echo $p['petugas_username'] ?></td>
+                            <td><?php echo $p['is_active'] == 1 ? "aktif" : "non aktif" ?></td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <a href="petugas_edit?id=<?php echo $p['petugas_id']; ?>" class="btn btn-default"><i class="fa fa-wrench"></i></a>
+                                    <a href="petugas_edit?id=<?php echo $p['petugas_id']; ?>" class="btn btn-default"><i class="fa fa-edit"></i></a>
                                     <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalPetugas<?= $p['petugas_id'] ?>">
                                         <i class="fa fa-trash"></i>
                                     </button> -->

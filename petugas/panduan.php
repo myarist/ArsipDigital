@@ -1,3 +1,5 @@
+<?php $active = "panduan"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">

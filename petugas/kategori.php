@@ -41,17 +41,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     $no = 1;
-                    $kategori = mysqli_query($koneksi,"SELECT * FROM kategori");
-                    while($p = mysqli_fetch_array($kategori)){
-                        ?>
+                    $kategori = mysqli_query($koneksi, "SELECT * FROM kategori");
+                    while ($p = mysqli_fetch_array($kategori)) {
+                    ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $p['kategori_nama'] ?></td>
                             <td><?php echo $p['kategori_keterangan'] ?></td>
                         </tr>
-                        <?php 
+                    <?php
                     }
                     ?>
                 </tbody>

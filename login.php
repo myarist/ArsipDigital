@@ -73,7 +73,8 @@
                         echo "<div class='alert alert-success'>ANDA TELAH BERHASIL LOGOUT</div>";
                     } else if ($_GET['alert'] == "belum_login") {
                         echo "<div class='alert alert-warning'>ANDA HARUS LOGIN UNTUK MENGAKSES DASHBOARD</div>";
-                    }
+                    } else if ($_GET['alert'] == "nonaktif")
+                        echo "<div class='alert alert-warning'>AKUN ANDA TIDAK AKTIF!</div>";
                 }
                 ?>
                 <div class="hpanel">

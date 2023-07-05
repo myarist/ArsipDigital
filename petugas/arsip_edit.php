@@ -1,3 +1,5 @@
+<?php $active = "arsip"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">
@@ -98,7 +100,7 @@
 
                             <div class="form-group">
                                 <label></label>
-                                <input type="submit" class="btn btn-primary" value="Upload">
+                                <input type="submit" class="btn btn-primary" value="Simpan">
                             </div>
 
                         </form>
