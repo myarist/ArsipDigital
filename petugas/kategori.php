@@ -1,3 +1,5 @@
+<?php $active = "kategori"; ?>
+
 <?php include 'header.php'; ?>
 
 <div class="breadcome-area">
@@ -28,7 +30,7 @@
     <div class="panel panel">
 
         <div class="panel-heading">
-            <h3 class="panel-title">Data kategori</h3>
+            <h3 class="panel-title"></h3>
         </div>
         <div class="panel-body">
 

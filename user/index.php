@@ -29,7 +29,7 @@
 <div class="traffice-source-area mg-b-30">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="white-box analytics-info-cs">
                     <h3 class="box-title">Petugas</h3>
                     <ul class="list-inline two-part-sp">
@@ -48,16 +48,16 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="white-box analytics-info-cs res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
                     <h3 class="box-title">Total Arsip</h3>
                     <ul class="list-inline two-part-sp">
                         <li>
-                            <div id="sparklinedash3"></div>
+                            <div id="sparklinedash2"></div>
                         </li>
-                        <li class="text-right graph-three-ctn">
+                        <li class="text-right graph-two-ctn">
                             <i class="fa fa-level-up" aria-hidden="true"></i>
-                            <span class="counter text-info">
+                            <span class="text">
                                 <?php
                                 $jumlah_arsip = mysqli_query($koneksi, "select * from arsip");
                                 ?>
@@ -67,16 +67,16 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="white-box analytics-info-cs res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
                     <h3 class="box-title">Kategori Arsip</h3>
                     <ul class="list-inline two-part-sp">
                         <li>
-                            <div id="sparklinedash4"></div>
+                            <div id="sparklinedash3"></div>
                         </li>
-                        <li class="text-right graph-four-ctn">
-                            <i class="fa fa-level-down" aria-hidden="true"></i>
-                            <span class="text-purple">
+                        <li class="text-right graph-three-ctn">
+                            <i class="fa fa-level-up" aria-hidden="true"></i>
+                            <span class="text">
                                 <?php
                                 $jumlah_kategori = mysqli_query($koneksi, "select * from kategori");
                                 ?>
@@ -86,6 +86,36 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="white-box analytics-info-cs res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
+                    <h3 class="box-title">Jumlah Unduhan</h3>
+                    <ul class="list-inline two-part-sp">
+                        <li>
+                            <div id="sparklinedash4"></div>
+                        </li>
+                        <li class="text-right graph-four-ctn">
+                            <i class="fa fa-level-up" aria-hidden="true"></i>
+                            <?php
+                            date_default_timezone_set('Asia/Jakarta');
+                            $jumlah_unduh = 0;
+                            $bulan_ini = date('m');
+                            $daftar_unduh = mysqli_query($koneksi, "select riwayat_waktu from riwayat");
+                            foreach ($daftar_unduh as $daftar) {
+                                $bulan_arsip = date("m", strtotime($daftar['riwayat_waktu']));
+                                if ($bulan_arsip == $bulan_ini) {
+                                    $jumlah_unduh += 1;
+                                }
+                            }
+                            ?>
+                            <span class="text">
+                                <span class="counter"><?php echo $jumlah_unduh; ?></span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

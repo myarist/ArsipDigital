@@ -104,7 +104,7 @@
     <div class="panel">
 
         <div class="panel-heading">
-            <h3 class="panel-title">Semua arsip</h3>
+            <!-- <h3 class="panel-title">Semua arsip</h3> -->
         </div>
         <div class="panel-body">
 
@@ -182,7 +182,7 @@
 
                                 <div class="btn-group">
                                     <!-- <a target="_blank" class="btn btn-default" href="../arsip/<?php echo $p['arsip_file']; ?>"><i class="fa fa-download"></i></a> -->
-                                    <a target="_blank" class="btn btn-default" href="arsip_download.php?id=<?php echo $p['arsip_id']; ?>"><i class="fa fa-download"></i></a>
+                                    <a class="btn btn-default" href="arsip_download.php?id=<?php echo $p['arsip_id']; ?>" download><i class="fa fa-download"></i></a>
                                     <a target="_blank" class="clickLink btn btn-default" data-toggle="modal" data-target="#myModal" data-name="<?php echo $p['arsip_nama']; ?>" data-file="<?= $p['arsip_file'] ?>"><i class="fa fa-search"></i> Preview</a>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_<?php echo $p['arsip_id']; ?>">
                                         <i class="fa fa-trash"></i>

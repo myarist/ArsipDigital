@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="breadcome-heading">
-                                <h4 style="margin-bottom: 0px">Data Arsip</h4>
+                                <h4 style="margin-bottom: 0px">Data Arsip Saya</h4>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -30,7 +30,7 @@
     <div class="panel panel">
 
         <div class="panel-heading">
-            <h3 class="panel-title">Data Arsip Saya</h3>
+            <h3 class="panel-title"></h3>
         </div>
         <div class="panel-body">
 
@@ -117,7 +117,7 @@
 
 
                                 <div class="btn-group">
-                                    <a target="_blank" class="btn btn-default" href="../arsip/<?php echo $p['arsip_file']; ?>"><i class="fa fa-download"></i></a>
+                                    <a class="btn btn-default" href="../arsip/<?php echo $p['arsip_file']; ?>" download><i class="fa fa-download"></i></a>
                                     <a target="_blank" class="clickLink btn btn-default" data-toggle="modal" data-target="#myModal" data-name="<?php echo $p['arsip_nama']; ?>" data-file="<?= $p['arsip_file'] ?>"><i class="fa fa-search"></i> Preview</a>
                                     <a href="arsip_edit?id=<?php echo $p['arsip_id']; ?>" class="btn btn-default"><i class="fa fa-edit"></i></a>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_<?php echo $p['arsip_id']; ?>">
