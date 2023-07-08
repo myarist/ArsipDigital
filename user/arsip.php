@@ -103,9 +103,9 @@
 
     <div class="panel">
 
-        <div class="panel-heading">
-            <!-- <h3 class="panel-title">Semua arsip</h3> -->
-        </div>
+        <!-- <div class="panel-heading">
+             <h3 class="panel-title">Semua arsip</h3> -->
+        <!-- </div> -->
         <div class="panel-body">
 
             <table id="table" class="table table-bordered table-striped table-hover table-datatable">
