@@ -108,6 +108,19 @@
         <!-- </div> -->
         <div class="panel-body">
 
+
+            <?php
+            if (isset($_GET['alert'])) {
+                if ($_GET['alert'] == "hapus_sukses") {
+                    echo "<div class='alert alert-success'>Berhasil menghapus Arsip Petugas!</div>";
+                }
+                if ($_GET['alert'] == "hapus_gagal") {
+                    echo "<div class='alert alert-success'>Gagal menghapus Arsip Petugas!</div>";
+                }
+            }
+            ?>
+
+
             <table id="table" class="table table-bordered table-striped table-hover table-datatable">
                 <thead>
                     <tr>

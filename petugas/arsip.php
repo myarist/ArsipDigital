@@ -90,25 +90,35 @@
                 <a href="arsip_tambah" class="btn btn-primary"><i class="fa fa-cloud"></i> Upload Arsip</a>
             </div>
 
+
             <br>
             <br>
             <br>
 
-            <center>
-                <?php
-                if (isset($_GET['alert'])) {
-                    if ($_GET['alert'] == "gagal") {
-                ?>
-                        <div class="alert alert-danger">File arsip gagal diupload. krena demi keamanan file .php tidak diperbolehkan.</div>
-                    <?php
-                    } else {
-                    ?>
-                        <div class="alert alert-success">Arsip berhasil tersimpan.</div>
-                <?php
-                    }
+
+            <?php
+            if (isset($_GET['alert'])) {
+                if ($_GET['alert'] == "tambah_sukses") {
+                    echo "<div class='alert alert-success'>Berhasil upload Arsip!</div>";
                 }
-                ?>
-            </center>
+                if ($_GET['alert'] == "tambah_gagal") {
+                    echo "<div class='alert alert-success'>Gagal upload Arsip!</div>";
+                }
+                if ($_GET['alert'] == "hapus_sukses") {
+                    echo "<div class='alert alert-success'>Berhasil menghapus Arsip!</div>";
+                }
+                if ($_GET['alert'] == "hapus_gagal") {
+                    echo "<div class='alert alert-success'>Gagal menghapus Arsip!</div>";
+                }
+                if ($_GET['alert'] == "edit_sukses") {
+                    echo "<div class='alert alert-success'>Berhasil mengubah Arsip!</div>";
+                }
+                if ($_GET['alert'] == "edit_gagal") {
+                    echo "<div class='alert alert-success'>Gagal mengubah Arsip!</div>";
+                }
+            }
+            ?>
+
             <table id="table" class="table table-bordered table-striped table-hover table-datatable">
                 <thead>
                     <tr>

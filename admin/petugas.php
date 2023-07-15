@@ -42,6 +42,23 @@
             <br>
             <br>
 
+            <?php
+            if (isset($_GET['alert'])) {
+                if ($_GET['alert'] == "tambah_sukses") {
+                    echo "<div class='alert alert-success'>Berhasil menambahkan akun Petugas!</div>";
+                }
+                if ($_GET['alert'] == "tambah_gagal") {
+                    echo "<div class='alert alert-success'>Gagal menambahkan akun Petugas!</div>";
+                }
+                if ($_GET['alert'] == "edit_sukses") {
+                    echo "<div class='alert alert-success'>Berhasil mengubah akun Petugas!</div>";
+                }
+                if ($_GET['alert'] == "edit_gagal") {
+                    echo "<div class='alert alert-success'>Gagal mengubah akun Petugas!</div>";
+                }
+            }
+            ?>
+
             <table id="table" class="table table-bordered table-striped table-hover table-datatable">
                 <thead>
                     <tr>
@@ -57,7 +74,7 @@
                     <?php
                     include '../koneksi.php';
                     $no = 1;
-                    $petugas = mysqli_query($koneksi, "SELECT * FROM petugas ORDER BY petugas_id DESC");
+                    $petugas = mysqli_query($koneksi, "SELECT * FROM petugas ORDER BY petugas_id AND is_active DESC");
                     while ($p = mysqli_fetch_array($petugas)) {
                     ?>
                         <tr>
