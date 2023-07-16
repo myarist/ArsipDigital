@@ -69,7 +69,7 @@
                 <?php
                 if (isset($_GET['alert'])) {
                     if ($_GET['alert'] == "sukses") {
-                        echo "<div class='alert alert-success'>Password anda berhasil diganti!</div>";
+                        echo "<div class='alert alert-success'>Profil anda berhasil diperbarui!</div>";
                     }
                 }
                 ?>

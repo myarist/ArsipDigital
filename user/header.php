@@ -114,17 +114,15 @@
                             <a href="kategori" class="<?php echo ($active == 'kategori') ? "bg-info" : "" ?>" aria-expanded="false"><span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Kategori</span></a>
                         </li>
 
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>
+                            <a href="panduan" class="<?php echo ($active == 'panduan') ? "bg-info" : "" ?>" aria-expanded="false"><span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Panduan </span></a>
+                        </li>
+
+
+
+
+
+
                         <li></li>
                         <li></li>
                         <li></li>

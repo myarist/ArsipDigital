@@ -76,7 +76,7 @@
                             <div id="sparklinedash4"></div>
                         </li>
                         <li class="text-right graph-four-ctn">
-                            <i class="fa fa-level-down" aria-hidden="true"></i>
+                            <i class="fa fa-level-up" aria-hidden="true"></i>
                             <span class="text-purple">
                                 <?php
                                 $jumlah_kategori = mysqli_query($koneksi, "select * from kategori");

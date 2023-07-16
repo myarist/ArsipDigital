@@ -41,14 +41,23 @@
                     <div class="pull-right">
                         <a href="petugas" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
                     </div>
-                    <br>
-                    <br>
+                    <br />
+                    <br />
+                    <br />
 
                     <?php
                     $id = $_GET['id'];
                     $data = mysqli_query($koneksi, "select * from petugas where petugas_id='$id'");
                     while ($d = mysqli_fetch_array($data)) {
                     ?>
+
+                        <?php
+                        if (isset($_GET['alert'])) {
+                            if ($_GET['alert'] == "verify_gagal") {
+                                echo "<div class='alert alert-danger'>Konfirmasi password tidak sesuai</div>";
+                            }
+                        }
+                        ?>
 
                         <form method="post" action="petugas_update.php" enctype="multipart/form-data">
 
@@ -66,6 +75,12 @@
                             <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" class="form-control" name="password">
+                                <small>Kosongkan jika tidak ingin mengubah password.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Konfirmasi Password</label>
+                                <input type="password" class="form-control" name="konfirmasi_password">
                                 <small>Kosongkan jika tidak ingin mengubah password.</small>
                             </div>
 

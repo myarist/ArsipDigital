@@ -30,7 +30,7 @@
     <div class="panel panel">
 
         <div class="panel-heading">
-            <h3 class="panel-title">Data kategori</h3>
+            <!-- <h3 class="panel-title">Data kategori</h3> -->
         </div>
         <div class="panel-body">
 
@@ -43,6 +43,24 @@
             <br>
             <br>
             <br>
+
+            <?php
+            if (isset($_GET['alert'])) {
+                if ($_GET['alert'] == "tambah_sukses") {
+                    echo "<div class='alert alert-success'>Berhasil menambahkan Kategori Arsip!</div>";
+                }
+                if ($_GET['alert'] == "tambah_gagal") {
+                    echo "<div class='alert alert-success'>Gagal menambahkan Kategori Arsip!</div>";
+                }
+                if ($_GET['alert'] == "edit_sukses") {
+                    echo "<div class='alert alert-success'>Berhasil mengubah Kategori Arsip!</div>";
+                }
+                if ($_GET['alert'] == "edit_gagal") {
+                    echo "<div class='alert alert-success'>Gagal mengubah Kategori Arsip!</div>";
+                }
+            }
+            ?>
+
             <table id="table" class="table table-bordered table-striped table-hover table-datatable">
                 <thead>
                     <tr>

@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="breadcome-heading">
-                                <h4 style="margin-bottom: 0px">Data Arsip</h4>
+                                <h4 style="margin-bottom: 0px">Data Arsip Saya</h4>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -27,37 +27,98 @@
 </div>
 
 <div class="container-fluid">
-    <div class="panel panel">
 
-        <div class="panel-heading">
-            <h3 class="panel-title">Data Arsip Saya</h3>
-        </div>
+    <div class="panel">
+
         <div class="panel-body">
 
+            <form method="get" action="">
+
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label>Filter Kategori</label>
+                            <select class="form-control" name="kategori" required="required">
+                                <option value="">Pilih kategori</option>
+                                <option value="all">Pilih semua kategori</option>
+                                <?php
+                                $kategori = mysqli_query($koneksi, "SELECT * FROM kategori");
+                                while ($k = mysqli_fetch_array($kategori)) {
+                                ?>
+                                    <option <?php if (isset($_GET['kategori'])) {
+                                                if ($_GET['kategori'] == $k['kategori_id']) {
+                                                    echo "selected='selected'";
+                                                }
+                                            } ?> value="<?php echo $k['kategori_id']; ?>"><?php echo $k['kategori_nama']; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-lg-2">
+                <h1></h1>
+                <br>
+                <input type="submit" class="btn btn-primary" value="Tampilkan">
+            </div> -->
+
+
+                    <div class="col-lg-2">
+                        <h1></h1>
+                        <br>
+                        <input type="submit" class="btn btn-primary" value="Tampilkan">
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="panel panel">
+
+        <!-- <div class="panel-heading">
+            <h3 class="panel-title"></h3>
+        </div> -->
+        <div class="panel-body">
 
             <div class="pull-right">
                 <a href="arsip_tambah" class="btn btn-primary"><i class="fa fa-cloud"></i> Upload Arsip</a>
             </div>
 
+
             <br>
             <br>
             <br>
 
-            <center>
-                <?php
-                if (isset($_GET['alert'])) {
-                    if ($_GET['alert'] == "gagal") {
-                ?>
-                        <div class="alert alert-danger">File arsip gagal diupload. krena demi keamanan file .php tidak diperbolehkan.</div>
-                    <?php
-                    } else {
-                    ?>
-                        <div class="alert alert-success">Arsip berhasil tersimpan.</div>
-                <?php
-                    }
+
+            <?php
+            if (isset($_GET['alert'])) {
+                if ($_GET['alert'] == "tambah_sukses") {
+                    echo "<div class='alert alert-success'>Berhasil upload Arsip!</div>";
                 }
-                ?>
-            </center>
+                if ($_GET['alert'] == "tambah_gagal") {
+                    echo "<div class='alert alert-success'>Gagal upload Arsip!</div>";
+                }
+                if ($_GET['alert'] == "hapus_sukses") {
+                    echo "<div class='alert alert-success'>Berhasil menghapus Arsip!</div>";
+                }
+                if ($_GET['alert'] == "hapus_gagal") {
+                    echo "<div class='alert alert-success'>Gagal menghapus Arsip!</div>";
+                }
+                if ($_GET['alert'] == "edit_sukses") {
+                    echo "<div class='alert alert-success'>Berhasil mengubah Arsip!</div>";
+                }
+                if ($_GET['alert'] == "edit_gagal") {
+                    echo "<div class='alert alert-success'>Gagal mengubah Arsip!</div>";
+                }
+            }
+            ?>
+
             <table id="table" class="table table-bordered table-striped table-hover table-datatable">
                 <thead>
                     <tr>
@@ -72,10 +133,23 @@
                 </thead>
                 <tbody>
                     <?php
-                    include '../koneksi.php';
+
                     $no = 1;
-                    $saya = $_SESSION['id'];
-                    $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id and arsip_petugas='$saya' ORDER BY arsip_id DESC");
+                    $petugas = $_SESSION['id'];
+                    if (isset($_GET['kategori'])) {
+                        $kategori = $_GET['kategori'];
+                        if ($kategori == "all") {
+                            $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori WHERE arsip_kategori=kategori_id AND arsip_petugas='$petugas' ORDER BY arsip_id DESC");
+                        } elseif ($kategori == "all") {
+                            if ($kategori == "all") {
+                                $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori WHERE arsip_kategori=kategori_id AND arsip_petugas='$petugas' ORDER BY arsip_id DESC");
+                            }
+                        } elseif ($kategori != "all") {
+                            $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori WHERE arsip_kategori=kategori_id and arsip_kategori='$kategori' AND arsip_petugas='$petugas' ORDER BY arsip_id DESC");
+                        }
+                    } else
+                        $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori WHERE arsip_kategori=kategori_id AND arsip_petugas='$petugas' ORDER BY arsip_id DESC");
+
                     while ($p = mysqli_fetch_array($arsip)) {
                     ?>
                         <tr>
@@ -117,7 +191,7 @@
 
 
                                 <div class="btn-group">
-                                    <a target="_blank" class="btn btn-default" href="../arsip/<?php echo $p['arsip_file']; ?>"><i class="fa fa-download"></i></a>
+                                    <a class="btn btn-default" href="../arsip/<?php echo $p['arsip_file']; ?>" download><i class="fa fa-download"></i></a>
                                     <a target="_blank" class="clickLink btn btn-default" data-toggle="modal" data-target="#myModal" data-name="<?php echo $p['arsip_nama']; ?>" data-file="<?= $p['arsip_file'] ?>"><i class="fa fa-search"></i> Preview</a>
                                     <a href="arsip_edit?id=<?php echo $p['arsip_id']; ?>" class="btn btn-default"><i class="fa fa-edit"></i></a>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_<?php echo $p['arsip_id']; ?>">

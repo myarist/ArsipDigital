@@ -29,9 +29,9 @@
 <div class="container-fluid">
     <div class="panel panel">
 
-        <div class="panel-heading">
-            <h3 class="panel-title">Panduan</h3>
-        </div>
+        <!-- <div class="panel-heading">
+            <h3 class="panel-title"></h3>
+        </div> -->
 
         <div>
 
