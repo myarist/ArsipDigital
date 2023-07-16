@@ -56,6 +56,9 @@
                 if ($_GET['alert'] == "edit_gagal") {
                     echo "<div class='alert alert-success'>Gagal mengubah akun Petugas!</div>";
                 }
+                if ($_GET['alert'] == "verify_gagal") {
+                    echo "<div class='alert alert-success'>Konfirmasi password tidak sesuai</div>";
+                }
             }
             ?>
 

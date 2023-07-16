@@ -43,6 +43,8 @@
                             echo "<div class='alert alert-success'>Password anda berhasil diganti!</div>";
                         } elseif ($_GET['alert'] == "gagal") {
                             echo "<div class='alert alert-danger'>Password lama tidak sama!</div>";
+                        } elseif ($_GET['alert'] == "verify_gagal") {
+                            echo "<div class='alert alert-danger'>Konfirmasi password tidak sesuai!</div>";
                         }
                     }
                     ?>
@@ -55,6 +57,10 @@
                         <div class="form-group">
                             <label>Masukkan Password Baru</label>
                             <input type="password" class="form-control" placeholder="Masukkan Password Baru .." name="passwordbaru" required="required" min="5">
+                        </div>
+                        <div class="form-group">
+                            <label>Konfirmasi Password</label>
+                            <input type="password" class="form-control" placeholder="Masukkan Konfirmasi Password .." name="konfirmasi_password" required="required" min="5">
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Simpan">
