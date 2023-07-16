@@ -44,6 +44,18 @@
 
                     <br>
                     <br>
+                    <br>
+
+                    <?php
+                    if (isset($_GET['alert'])) {
+                        if ($_GET['alert'] == "kode_gagal") {
+                            echo "<div class='alert alert-danger'>Kode arsip sudah terdaftar!</div>";
+                        }
+                        if ($_GET['alert'] == "tanggal_gagal") {
+                            echo "<div class='alert alert-danger'>Tanggal arsip tidak valid!</div>";
+                        }
+                    }
+                    ?>
 
                     <form method="post" action="arsip_aksi.php" enctype="multipart/form-data">
 
@@ -54,12 +66,12 @@
 
                         <div class="form-group">
                             <label>Tanggal Arsip</label>
-                            <input type="date" class="form-control" name="tanggal" required="required">
+                            <input type="date" class="form-control" name="tanggal" value="<?php echo isset($_GET['tanggal'])  ? $_GET['tanggal'] : '' ?>" required="required">
                         </div>
 
                         <div class="form-group">
                             <label>Nama Arsip</label>
-                            <input type="text" class="form-control" name="nama" required="required">
+                            <input type="text" class="form-control" name="nama" value="<?php echo isset($_GET['nama'])  ? $_GET['nama'] : '' ?>" required="required">
                         </div>
 
                         <div class="form-group">
@@ -70,7 +82,7 @@
                                 $kategori = mysqli_query($koneksi, "SELECT * FROM kategori");
                                 while ($k = mysqli_fetch_array($kategori)) {
                                 ?>
-                                    <option value="<?php echo $k['kategori_id']; ?>"><?php echo $k['kategori_nama']; ?></option>
+                                    <option value="<?php echo $k['kategori_id']; ?>" <?php echo (isset($_GET['kategori']) && ($_GET['kategori'] == $k['kategori_id']))  ? "selected='selected'" : '' ?>><?php echo $k['kategori_nama']; ?></option>
                                 <?php
                                 }
                                 ?>
@@ -79,7 +91,7 @@
 
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <textarea class="form-control" name="keterangan" required="required"></textarea>
+                            <textarea class="form-control" name="keterangan" required="required"><?php echo isset($_GET['keterangan'])  ? $_GET['keterangan'] : '' ?></textarea>
                         </div>
 
                         <div class="form-group">
