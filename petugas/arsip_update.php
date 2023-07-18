@@ -16,6 +16,8 @@ $filename = $_FILES['file']['name'];
 
 $kategori = $_POST['kategori'];
 $keterangan = $_POST['keterangan'];
+$arsip_status = 'belum diverifikasi';
+$arsip_cek = 'perlu pengecekan';
 
 //Cek kode arsip unik ===========================================================================
 // $cek_kode = mysqli_query($koneksi, "SELECT arsip_kode FROM arsip");
@@ -58,7 +60,7 @@ if ($tahun_upload > $tahun_now) {
 
 if ($filename == "") {
 
-	mysqli_query($koneksi, "update arsip set arsip_kode='$kode', arsip_nama='$nama', arsip_kategori='$kategori', arsip_keterangan='$keterangan', tanggal_arsip='$tanggal' where arsip_id='$id'") or die(mysqli_error($koneksi));
+	mysqli_query($koneksi, "UPDATE arsip SET arsip_kode='$kode', arsip_nama='$nama', arsip_kategori='$kategori', arsip_keterangan='$keterangan', tanggal_arsip='$tanggal', arsip_cek='$arsip_cek' where arsip_id='$id'") or die(mysqli_error($koneksi));
 	header("location:arsip?alert=edit_sukses");
 } else {
 
@@ -69,15 +71,16 @@ if ($filename == "") {
 	} else {
 
 		// hapus file lama
-		$lama = mysqli_query($koneksi, "select * from arsip where arsip_id='$id'");
-		$l = mysqli_fetch_assoc($lama);
-		$nama_file_lama = $l['arsip_file'];
+		$file_lama = mysqli_query($koneksi, "select * from arsip where arsip_id='$id'");
+		$file = mysqli_fetch_assoc($file_lama);
+		$nama_file_lama = $file['arsip_file'];
 		unlink("../arsip/" . $nama_file_lama);
+
 
 		// upload file baru
 		move_uploaded_file($_FILES['file']['tmp_name'], '../arsip/' . $rand . '_' . $filename);
 		$nama_file = $rand . '_' . $filename;
-		mysqli_query($koneksi, "update arsip set arsip_kode='$kode', arsip_nama='$nama', arsip_jenis='$jenis', arsip_kategori='$kategori', arsip_keterangan='$keterangan', arsip_file='$nama_file', tanggal_arsip='$tanggal' where arsip_id='$id'") or die(mysqli_error($koneksi));
+		mysqli_query($koneksi, "UPDATE arsip SET arsip_kode='$kode', arsip_nama='$nama', arsip_jenis='$jenis', arsip_kategori='$kategori', arsip_keterangan='$keterangan', arsip_file='$nama_file', tanggal_arsip='$tanggal', arsip_status='$arsip_status', arsip_cek='$arsip_cek' where arsip_id='$id'") or die(mysqli_error($koneksi));
 		header("location:arsip?alert=edit_sukses");
 	}
 }

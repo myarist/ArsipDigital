@@ -128,6 +128,7 @@
                         <th>Kategori</th>
                         <!-- <th>Petugas</th> -->
                         <th>Keterangan</th>
+                        <th>Status Arsip</th>
                         <th class="text-center" width="20%">OPSI</th>
                     </tr>
                 </thead>
@@ -139,16 +140,16 @@
                     if (isset($_GET['kategori'])) {
                         $kategori = $_GET['kategori'];
                         if ($kategori == "all") {
-                            $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori WHERE arsip_kategori=kategori_id AND arsip_petugas='$petugas' ORDER BY arsip_id DESC");
+                            $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori WHERE arsip_kategori=kategori_id AND arsip_petugas='$petugas' ORDER BY arsip_status ASC, arsip_id DESC");
                         } elseif ($kategori == "all") {
                             if ($kategori == "all") {
-                                $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori WHERE arsip_kategori=kategori_id AND arsip_petugas='$petugas' ORDER BY arsip_id DESC");
+                                $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori WHERE arsip_kategori=kategori_id AND arsip_petugas='$petugas' ORDER BY arsip_status ASC, arsip_id DESC");
                             }
                         } elseif ($kategori != "all") {
-                            $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori WHERE arsip_kategori=kategori_id and arsip_kategori='$kategori' AND arsip_petugas='$petugas' ORDER BY arsip_id DESC");
+                            $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori WHERE arsip_kategori=kategori_id and arsip_kategori='$kategori' AND arsip_petugas='$petugas' ORDER BY arsip_status ASC, arsip_id DESC");
                         }
                     } else
-                        $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori WHERE arsip_kategori=kategori_id AND arsip_petugas='$petugas' ORDER BY arsip_id DESC");
+                        $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori WHERE arsip_kategori=kategori_id AND arsip_petugas='$petugas' ORDER BY arsip_status ASC, arsip_id DESC");
 
                     while ($p = mysqli_fetch_array($arsip)) {
                     ?>
@@ -165,6 +166,18 @@
                             <td><?php echo $p['kategori_nama'] ?></td>
                             <!-- <td><?php echo $p['petugas_nama'] ?></td> -->
                             <td><?php echo $p['arsip_keterangan'] ?></td>
+                            <?php
+                            if ($p['arsip_status'] == 'belum diverifikasi') {
+                                $warna = 'btn-info';
+                            }
+                            if ($p['arsip_status'] == 'sudah disetujui') {
+                                $warna = 'btn-success';
+                            }
+                            if ($p['arsip_status'] == 'perlu perbaikan') {
+                                $warna = 'btn-warning';
+                            }
+                            ?>
+                            <td><a class="clickLink btn <?php echo $warna; ?>" data-toggle="modal" data-target="#status<?php echo $p['arsip_id']; ?>"><?php echo $p['arsip_status'] ?></a></td>
                             <td class="text-center">
 
 
@@ -252,5 +265,31 @@
         </div>
     </div>
 </div>
+
+<?php foreach ($arsip as $p) : ?>
+    <div class="modal" id="status<?php echo $p['arsip_id']; ?>">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title text-center">PESAN</h5>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <h6 class="text-center"><?php echo ($p['arsip_pesan'] == '') ? 'belum ada pesan...' : $p['arsip_pesan'] ?></h6>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
 
 <?php include 'footer.php'; ?>

@@ -130,6 +130,7 @@
                         <th>Kategori</th>
                         <th>Petugas</th>
                         <th>Keterangan</th>
+                        <th>Status Arsip</th>
                         <th class="text-center" width="20%">OPSI</th>
                     </tr>
                 </thead>
@@ -141,18 +142,18 @@
                         $kategori = $_GET['kategori'];
                         $petugas = $_GET['petugas'];
                         if ($kategori == "all" && $petugas == "all") {
-                            $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id ORDER BY arsip_id DESC");
+                            $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id ORDER BY arsip_cek ASC,arsip_id DESC");
                         } elseif ($kategori == "all" || $petugas == "all") {
                             if ($kategori == "all") {
-                                $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id and arsip_petugas='$petugas' ORDER BY arsip_id DESC");
+                                $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id and arsip_petugas='$petugas' ORDER BY arsip_cek ASC,arsip_id DESC");
                             } elseif ($petugas == "all") {
-                                $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id and arsip_kategori='$kategori' ORDER BY arsip_id DESC");
+                                $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id and arsip_kategori='$kategori' ORDER BY arsip_cek ASC,arsip_id DESC");
                             }
                         } elseif ($kategori != "all" && $petugas != "all") {
-                            $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id and arsip_kategori='$kategori' and arsip_petugas='$petugas' ORDER BY arsip_id DESC");
+                            $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id and arsip_kategori='$kategori' and arsip_petugas='$petugas' ORDER BY arsip_cek ASC,arsip_id DESC");
                         }
                     } else
-                        $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id ORDER BY arsip_id DESC");
+                        $arsip = mysqli_query($koneksi, "SELECT * FROM arsip,kategori,petugas WHERE arsip_petugas=petugas_id and arsip_kategori=kategori_id ORDER BY arsip_cek ASC,arsip_id DESC");
                     while ($p = mysqli_fetch_array($arsip)) {
                     ?>
                         <tr>
@@ -168,6 +169,15 @@
                             <td><?php echo $p['kategori_nama'] ?></td>
                             <td><?php echo $p['petugas_nama'] ?></td>
                             <td><?php echo $p['arsip_keterangan'] ?></td>
+                            <?php
+                            if ($p['arsip_cek'] == 'perlu pengecekan') {
+                                $warna = 'btn-warning';
+                            }
+                            if ($p['arsip_cek'] == 'sudah dicek') {
+                                $warna = 'btn-success';
+                            }
+                            ?>
+                            <td><a class="clickLink btn <?php echo $warna; ?>" data-toggle="modal" data-target="#status<?php echo $p['arsip_id']; ?>"><?php echo $p['arsip_cek']; ?></a></td>
                             <td class="text-center">
 
 
@@ -257,5 +267,51 @@
     </div>
 </div>
 
+<?php foreach ($arsip as $p) : ?>
+    <div class="modal" id="status<?php echo $p['arsip_id']; ?>">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title text-center">PESAN</h5>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <form method="post" action="arsip_aksi.php" enctype="multipart/form-data">
+
+                        <input type="hidden" name="arsip_id" value="<?php echo $p['arsip_id']; ?>">
+
+                        <div class="form-group">
+                            <label>Status Arsip</label>
+                            <select class="form-control" name="arsip_status" required="required">
+                                <option value="" <?php echo ($p['arsip_status'] == 'belum diverifikasi')  ? "selected='selected'" : '' ?> disabled>belum diverifikasi</option>
+                                <option value="perlu perbaikan" <?php echo ($p['arsip_status'] == 'perperbaikanlu ')  ? "selected='selected'" : '' ?>>perlu perbaikan</option>
+                                <option value="sudah disetujui" <?php echo ($p['arsip_status'] == 'sudah disetujui')  ? "selected='selected'" : '' ?>>sudah disetujui</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Pesan</label>
+                            <textarea class="form-control" name="arsip_pesan" required="required"><?php echo $p['arsip_pesan']; ?></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label></label>
+                            <input type="submit" class="btn btn-primary" value="Simpan">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
 
 <?php include 'footer.php'; ?>

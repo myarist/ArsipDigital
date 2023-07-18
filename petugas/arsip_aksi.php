@@ -8,6 +8,9 @@ $petugas = $_SESSION['id'];
 $kode  = $_POST['kode'];
 $tanggal = $_POST['tanggal'];
 $nama  = $_POST['nama'];
+$arsip_status = 'belum diverifikasi';
+$arsip_cek = 'perlu pengecekan';
+
 
 $rand = rand();
 
@@ -62,6 +65,6 @@ if ($jenis == "php") {
 } else {
 	move_uploaded_file($_FILES['file']['tmp_name'], '../arsip/' . $rand . '_' . $filename);
 	$nama_file = $rand . '_' . $filename;
-	mysqli_query($koneksi, "insert into arsip values (NULL,'$waktu','$petugas','$kode','$nama','$jenis','$kategori','$keterangan','$nama_file','$tanggal')") or die(mysqli_error($koneksi));
+	mysqli_query($koneksi, "insert into arsip values (NULL,'$waktu','$petugas','$kode','$nama','$jenis','$kategori','$keterangan','$nama_file','$tanggal', '$arsip_status', '','$arsip_cek')") or die(mysqli_error($koneksi));
 	header("location:arsip?alert=tambah_sukses");
 }
