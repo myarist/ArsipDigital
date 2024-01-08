@@ -44,7 +44,18 @@
 
                     <br>
                     <br>
+                    <br>
 
+                    <?php
+                    if (isset($_GET['alert'])) {
+                        if ($_GET['alert'] == "kode_gagal") {
+                            echo "<div class='alert alert-danger'>Kode arsip sudah terdaftar!</div>";
+                        }
+                        if ($_GET['alert'] == "tanggal_gagal") {
+                            echo "<div class='alert alert-danger'>Tanggal arsip tidak valid!</div>";
+                        }
+                    }
+                    ?>
 
                     <?php
                     $id = $_GET['id'];
@@ -57,7 +68,7 @@
                             <div class="form-group">
                                 <label>Kode Arsip</label>
                                 <input type="hidden" name="id" value="<?php echo $d['arsip_id']; ?>">
-                                <input type="text" class="form-control" name="kode" required="required" value="<?php echo $d['arsip_kode']; ?>">
+                                <input type="text" class="form-control" name="kode" required="required" value="<?php echo $d['arsip_kode']; ?>" readonly>
                             </div>
 
                             <div class="form-group">
